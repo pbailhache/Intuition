@@ -32,6 +32,7 @@ body
 
 #notion
 {
+	cursor: default;
 	font-size: 10em;
 	margin: 5% auto auto auto;
 	top: 20%;
