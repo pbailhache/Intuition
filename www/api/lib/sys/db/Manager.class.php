@@ -321,6 +321,29 @@ class sys_db_Manager {
 		}
 		return $l2;
 	}
+	public function unsafeGet($id, $lock = null) {
+		if($lock === null) {
+			$lock = true;
+		}
+		if($this->table_keys->length !== 1) {
+			throw new HException("Invalid number of keys");
+		}
+		if($id === null) {
+			return null;
+		}
+		$x = $this->getFromCacheKey(Std::string($id) . _hx_string_or_null($this->table_name));
+		if($x !== null && (!$lock || $x->_lock)) {
+			return $x;
+		}
+		$s = new StringBuf();
+		$s->add("SELECT * FROM ");
+		$s->add($this->table_name);
+		$s->add(" WHERE ");
+		$s->add($this->quoteField($this->table_keys[0]));
+		$s->add(" = ");
+		$this->getCnx()->addValue($s, $id);
+		return $this->unsafeObject($s->b, $lock);
+	}
 	public function dbInfos() {
 		return $this->table_infos;
 	}
@@ -362,6 +385,9 @@ class sys_db_Manager {
 	}
 	public function removeFromCache($x) {
 		sys_db_Manager::$object_cache->remove($this->makeCacheKey($x));
+	}
+	public function getFromCacheKey($key) {
+		return sys_db_Manager::$object_cache->get($key);
 	}
 	public function getFromCache($x, $lock) {
 		$c = sys_db_Manager::$object_cache->get($this->makeCacheKey($x));

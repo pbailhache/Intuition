@@ -16,6 +16,7 @@ class Main
 
 	public function new()
 	{
+		Web.setHeader("Access-Control-Allow-Origin", "*");
 		sys.db.Manager.cnx = sys.db.Mysql.connect(
 			{
 				/*/
