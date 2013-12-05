@@ -1,0 +1,12 @@
+http://fontawesome.io/
+
+fa-check
+fa-arrow-right
+fa-times
+
+Exemple HTML:
+<!DOCTYPE html>
+<link rel="stylesheet" href="css\font-awesome.min.css">
+<i class="fa fa-check"></i>
+<i class="fa fa-arrow-right"></i>
+<i class="fa fa-times"></i> 

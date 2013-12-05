@@ -1,3 +1,39 @@
-body{
-	background-color: green;
+body
+{
+	background-color: #a1bee6;
+	color:#f5f5f5;
+	font-size: 50%;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 800;
+	text-align: center;
+
+}
+
+#notion
+{
+	font-size: 10em;
+	margin: 0 auto;
+	top: 20%;
+}
+
+#choices
+{
+	text-align: center;
+	font-size: 5em;
+    width: 256px;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button
+{
+	top: 40%;
+	float: left;
+	position: relative;
+}
+
+.unsure
+{
+	padding: 0 50px;
 }
