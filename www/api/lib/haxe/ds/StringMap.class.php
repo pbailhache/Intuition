@@ -16,6 +16,17 @@ class haxe_ds_StringMap implements IMap, IteratorAggregate{
 			return null;
 		}
 	}
+	public function exists($key) {
+		return array_key_exists($key, $this->h);
+	}
+	public function remove($key) {
+		if(array_key_exists($key, $this->h)) {
+			unset($this->h[$key]);
+			return true;
+		} else {
+			return false;
+		}
+	}
 	public function keys() {
 		return new _hx_array_iterator(array_keys($this->h));
 	}

@@ -6,6 +6,9 @@ class Date {
 		$this->__t = mktime($hour, $min, $sec, $month + 1, $day, $year);
 	}}
 	public $__t;
+	public function toString() {
+		return date("Y-m-d H:i:s", $this->__t);
+	}
 	public function __call($m, $a) {
 		if(isset($this->$m) && is_callable($this->$m))
 			return call_user_func_array($this->$m, $a);
@@ -24,5 +27,5 @@ class Date {
 	static function fromString($s) {
 		return Date::fromPhpTime(strtotime($s));
 	}
-	function __toString() { return 'Date'; }
+	function __toString() { return $this->toString(); }
 }

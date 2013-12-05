@@ -20,6 +20,21 @@ class HList implements IteratorAggregate{
 	public function iterator() {
 		return new _hx_list_iterator($this);
 	}
+	public function join($sep) {
+		$s = "";
+		$first = true;
+		$l = $this->h;
+		while($l !== null) {
+			if($first) {
+				$first = false;
+			} else {
+				$s .= _hx_string_or_null($sep);
+			}
+			$s .= Std::string($l[0]);
+			$l = $l[1];
+		}
+		return $s;
+	}
 	public function getIterator() {
 		return $this->iterator();
 	}

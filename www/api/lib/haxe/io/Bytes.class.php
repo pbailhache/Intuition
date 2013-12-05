@@ -8,6 +8,9 @@ class haxe_io_Bytes {
 	}}
 	public $length;
 	public $b;
+	public function compare($other) {
+		return $this->b < $other->b ? -1 : ($this->b == $other->b ? 0 : 1);
+	}
 	public function __call($m, $a) {
 		if(isset($this->$m) && is_callable($this->$m))
 			return call_user_func_array($this->$m, $a);
@@ -20,6 +23,9 @@ class haxe_io_Bytes {
 	}
 	static function alloc($length) {
 		return new haxe_io_Bytes($length, str_repeat(chr(0), $length));
+	}
+	static function ofString($s) {
+		return new haxe_io_Bytes(strlen($s), $s);
 	}
 	function __toString() { return 'haxe.io.Bytes'; }
 }

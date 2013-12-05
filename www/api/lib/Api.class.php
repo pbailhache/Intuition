@@ -3,9 +3,6 @@
 class Api {
 	public function __construct() { 
 	}
-	public function test($a) {
-		haxe_Log::trace($a, _hx_anonymous(array("fileName" => "Api.hx", "lineNumber" => 13, "className" => "Api", "methodName" => "test")));
-	}
 	public function doc() {
 		Sys::hprint("<!doctype html>\x0D\x0A\x09\x09\x09<html>\x0D\x0A\x09\x09\x09<head>\x0D\x0A\x09\x09\x09<style type=\"text/css\">\x0D\x0A\x09\x09\x09body\x0D\x0A\x09\x09\x09{\x0D\x0A\x09\x09\x09\x09background-color : #CCC;\x0D\x0A\x09\x09\x09\x09margin : 0px;\x0D\x0A\x09\x09\x09\x09font-family : consolas, serif;\x0D\x0A\x09\x09\x09}\x0D\x0A\x09\x09\x09.function\x0D\x0A\x09\x09\x09{\x0D\x0A\x09\x09\x09\x09margin : 5px;\x0D\x0A\x09\x09\x09\x09padding : 10px;\x0D\x0A\x09\x09\x09\x09border-radius : 3px;\x0D\x0A\x09\x09\x09\x09background-color : #FFF;\x0D\x0A\x09\x09\x09}\x0D\x0A\x09\x09\x09.name\x0D\x0A\x09\x09\x09{\x0D\x0A\x09\x09\x09\x09font-size : 2em;\x0D\x0A\x09\x09\x09}\x0D\x0A\x09\x09\x09.description\x0D\x0A\x09\x09\x09{\x0D\x0A\x09\x09\x09\x09font-size : 1.5em;\x0D\x0A\x09\x09\x09\x09opacity : 0.75;\x0D\x0A\x09\x09\x09}\x0D\x0A\x09\x09\x09</style>\x0D\x0A\x09\x09\x09</head>\x0D\x0A\x09\x09\x09<body>\x0D\x0A\x09\x09\x09<h1>Documentation Intuition - API</h1>");
 		{
@@ -45,8 +42,12 @@ class Api {
 	public function getTag() {
 		Sys::hprint(haxe_Json::stringify(_hx_anonymous(array("name" => "Test", "color" => "#123456")), null));
 	}
+	public function addProduct($name, $price, $imageURL, $url) {
+		_hx_deref(new data_Product($name, Std::parseFloat($price), $imageURL, $url))->insert();
+		Sys::hprint(haxe_Json::stringify(_hx_anonymous(array("success" => true)), null));
+	}
 	static function __meta__() { $args = func_get_args(); return call_user_func_array(self::$__meta__, $args); }
 	static $__meta__;
 	function __toString() { return 'Api'; }
 }
-Api::$__meta__ = _hx_anonymous(array("fields" => _hx_anonymous(array("test" => _hx_anonymous(array("description" => new _hx_array(array("test function")), "param1" => new _hx_array(array("a : test parameter")), "param2" => new _hx_array(array("b : test parameter")), "param3" => new _hx_array(array("c : test parameter")))), "doc" => _hx_anonymous(array("description" => new _hx_array(array("display documentation"))))))));
+Api::$__meta__ = _hx_anonymous(array("fields" => _hx_anonymous(array("doc" => _hx_anonymous(array("description" => new _hx_array(array("display documentation")))), "getTag" => _hx_anonymous(array("description" => new _hx_array(array("Return some tag based on history")))), "addProduct" => _hx_anonymous(array("description" => new _hx_array(array("Add a product in the database")), "param1" => new _hx_array(array("name")), "param2" => new _hx_array(array("price")), "param3" => new _hx_array(array("imageURL")), "param4" => new _hx_array(array("url"))))))));

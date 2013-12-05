@@ -36,6 +36,15 @@ class Type {
 			return _hx_ttype($s);
 		}
 	}
+	static function getClassName($c) {
+		if($c === null) {
+			return null;
+		}
+		return $c->__qname__;
+	}
+	static function getEnumName($e) {
+		return $e->__qname__;
+	}
 	static function resolveClass($name) {
 		$c = _hx_qtype($name);
 		if($c instanceof _hx_class || $c instanceof _hx_interface) {

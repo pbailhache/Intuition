@@ -3,6 +3,10 @@
 class Main {
 	public function __construct() {
 		if(!php_Boot::$skip_constructor) {
+		sys_db_Manager::set_cnx(sys_db_Mysql::connect(_hx_anonymous(array("host" => "mysql51-44.pro", "port" => null, "user" => "projetsbxnuit", "pass" => "greenShrimp", "database" => "projetsbxnuit", "socket" => null))));
+		if(!sys_db_TableCreate::exists(data_Product::$manager)) {
+			sys_db_TableCreate::create(data_Product::$manager, null);
+		}
 		$this->api = new Api();
 		try {
 			_hx_deref(new haxe_web_Dispatch(php_Web::getURI(), php_Web::getParams()))->runtimeDispatch(haxe_web_Dispatch::extractConfig($this));

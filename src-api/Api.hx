@@ -1,16 +1,9 @@
+import data.*;
+
 class Api
 {
 	public function new()
 	{
-	}
-
-	@description("test function")
-	@param1("a : test parameter")
-	@param2("b : test parameter")
-	@param3("c : test parameter")
-	public function test(a : String)
-	{
-		trace(a);
 	}
 
 	@description("display documentation")
@@ -65,8 +58,21 @@ class Api
 		Sys.print("</body></html>");
 	}
 
+	@description("Return some tag based on history")
 	public function getTag()
 	{
 		Sys.print(haxe.Json.stringify({name : "Test", color : "#123456"}));
+	}
+
+
+	@description("Add a product in the database")
+	@param1("name")
+	@param2("price")
+	@param3("imageURL")
+	@param4("url")
+	public function addProduct(name : String, price : String, imageURL : String, url : String)
+	{
+		new Product(name, Std.parseFloat(price), imageURL, url).insert();
+		Sys.print(haxe.Json.stringify({success : true}));
 	}
 }

@@ -13,6 +13,14 @@ class haxe_ds_ObjectMap implements IMap{
 		$this->h[$id] = $value;
 		$this->hk[$id] = $key;
 	}
+	public function get($key) {
+		$id = haxe_ds_ObjectMap::getId($key);
+		if(array_key_exists($id, $this->h)) {
+			return $this->h[$id];
+		} else {
+			return null;
+		}
+	}
 	public function __call($m, $a) {
 		if(isset($this->$m) && is_callable($this->$m))
 			return call_user_func_array($this->$m, $a);

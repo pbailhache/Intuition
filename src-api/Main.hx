@@ -1,6 +1,7 @@
 import php.Web;
 import haxe.web.Dispatch;
 import php.Session;
+import data.*;
 
 using StringTools;
 
@@ -15,6 +16,30 @@ class Main
 
 	public function new()
 	{
+		sys.db.Manager.cnx = sys.db.Mysql.connect(
+			{
+				/*/
+				host : "localhost",
+				port : null,
+				user : "root",
+				pass : "",
+				database : "labeli",
+				socket : null
+				//*/
+				//
+				host : "mysql51-44.pro",
+				port : null,
+				user : "projetsbxnuit",
+				pass : "greenShrimp",
+				database : "projetsbxnuit",
+				socket : null
+				//*/
+			}
+		);
+
+		// Create missing tables
+		if(!sys.db.TableCreate.exists(Product.manager))         { sys.db.TableCreate.create(Product.manager); }
+
 		api = new Api();
 
 		// Dispatch
@@ -26,6 +51,7 @@ class Main
 		{
 			doError(new Dispatch(Web.getURI(), Web.getParams()));
 		}
+		
 	}
 
 	public function doDefault()
@@ -52,5 +78,4 @@ class Main
 	{
 		Sys.print("error");
 	}
-
 }
