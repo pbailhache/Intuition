@@ -19,4 +19,16 @@ class Product extends sys.db.Object
 		this.imageURL = imageURL;
 		this.url = url;
 	}
+
+	public function getObject()
+	{
+		return
+		{
+			id : this.id,
+			name : this.name,
+			price : this.price,
+			imageURL : this.imageURL,
+			url : this.url,
+		};
+	}
 }

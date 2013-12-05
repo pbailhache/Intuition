@@ -11,6 +11,9 @@ class php_db__PDO_AllResultSet extends php_db__PDO_BaseResultSet {
 	public $all;
 	public $pos;
 	public $_length;
+	public function hasNext() {
+		return $this->pos < $this->_length;
+	}
 	public function nextRow() {
 		return $this->all[$this->pos++];
 	}

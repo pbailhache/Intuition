@@ -58,21 +58,48 @@ class Api
 		Sys.print("</body></html>");
 	}
 
+	@description("Add a tag in the database")
+	@param1("name : the name of the tag \"sweet\", \"calm\", ...")
+	@param2("color : hexadecimal representation of a corresponding color : #614287")
+	public function addTag(name : String, color : String)
+	{
+		new Tag(name, color).insert();
+		Sys.print(haxe.Json.stringify({success : true}));
+	}
+
+	@description("Return the list of tags")
+	public function getTags()
+	{
+		var result = [];
+		for(tag in Tag.manager.all())
+			result.push(tag.getObject());
+		Sys.print(haxe.Json.stringify(result));
+	}
+
 	@description("Return some tag based on history")
-	public function getTag()
+	public function getNewTag()
 	{
 		Sys.print(haxe.Json.stringify({name : "Test", color : "#123456"}));
 	}
 
 
 	@description("Add a product in the database")
-	@param1("name")
-	@param2("price")
-	@param3("imageURL")
-	@param4("url")
+	@param1("name : The name of the product")
+	@param2("price : The price of the product as a Float (0.75)")
+	@param3("imageURL : an url to an image of the product")
+	@param4("url : an url to buy the product")
 	public function addProduct(name : String, price : String, imageURL : String, url : String)
 	{
 		new Product(name, Std.parseFloat(price), imageURL, url).insert();
 		Sys.print(haxe.Json.stringify({success : true}));
+	}
+
+	@description("Return the list of products")
+	public function getProducts()
+	{
+		var result = [];
+		for(product in Product.manager.all())
+			result.push(product.getObject());
+		Sys.print(haxe.Json.stringify(result));
 	}
 }

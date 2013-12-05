@@ -16,6 +16,9 @@ class sys_db_Manager {
 	public $table_name;
 	public $table_keys;
 	public $class_proto;
+	public function all($lock = null) {
+		return $this->unsafeObjects("SELECT * FROM " . _hx_string_or_null($this->table_name), $lock);
+	}
 	public function doUpdateCache($x, $name, $v) {
 		$cache = Reflect::field($x, "cache_" . _hx_string_or_null($name));
 		if($cache === null) {
@@ -294,6 +297,29 @@ class sys_db_Manager {
 		$r = $this->cacheObject($r, $lock);
 		$this->make($r);
 		return $r;
+	}
+	public function unsafeObjects($sql, $lock) {
+		if($lock !== false) {
+			$lock = true;
+			$sql .= _hx_string_or_null($this->getLockMode());
+		}
+		$l = $this->unsafeExecute($sql)->results();
+		$l2 = new HList();
+		if(null == $l) throw new HException('null iterable');
+		$__hx__it = $l->iterator();
+		while($__hx__it->hasNext()) {
+			$x = $__hx__it->next();
+			$c = $this->getFromCache($x, $lock);
+			if($c !== null) {
+				$l2->add($c);
+			} else {
+				$x = $this->cacheObject($x, $lock);
+				$this->make($x);
+				$l2->add($x);
+			}
+			unset($c);
+		}
+		return $l2;
 	}
 	public function dbInfos() {
 		return $this->table_infos;

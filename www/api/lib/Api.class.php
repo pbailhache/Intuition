@@ -39,15 +39,39 @@ class Api {
 		}
 		Sys::hprint("</body></html>");
 	}
-	public function getTag() {
+	public function addTag($name, $color) {
+		_hx_deref(new data_Tag($name, $color))->insert();
+		Sys::hprint(haxe_Json::stringify(_hx_anonymous(array("success" => true)), null));
+	}
+	public function getTags() {
+		$result = new _hx_array(array());
+		if(null == data_Tag::$manager->all(null)) throw new HException('null iterable');
+		$__hx__it = data_Tag::$manager->all(null)->iterator();
+		while($__hx__it->hasNext()) {
+			$tag = $__hx__it->next();
+			$result->push($tag->getObject());
+		}
+		Sys::hprint(haxe_Json::stringify($result, null));
+	}
+	public function getNewTag() {
 		Sys::hprint(haxe_Json::stringify(_hx_anonymous(array("name" => "Test", "color" => "#123456")), null));
 	}
 	public function addProduct($name, $price, $imageURL, $url) {
 		_hx_deref(new data_Product($name, Std::parseFloat($price), $imageURL, $url))->insert();
 		Sys::hprint(haxe_Json::stringify(_hx_anonymous(array("success" => true)), null));
 	}
+	public function getProducts() {
+		$result = new _hx_array(array());
+		if(null == data_Product::$manager->all(null)) throw new HException('null iterable');
+		$__hx__it = data_Product::$manager->all(null)->iterator();
+		while($__hx__it->hasNext()) {
+			$product = $__hx__it->next();
+			$result->push($product->getObject());
+		}
+		Sys::hprint(haxe_Json::stringify($result, null));
+	}
 	static function __meta__() { $args = func_get_args(); return call_user_func_array(self::$__meta__, $args); }
 	static $__meta__;
 	function __toString() { return 'Api'; }
 }
-Api::$__meta__ = _hx_anonymous(array("fields" => _hx_anonymous(array("doc" => _hx_anonymous(array("description" => new _hx_array(array("display documentation")))), "getTag" => _hx_anonymous(array("description" => new _hx_array(array("Return some tag based on history")))), "addProduct" => _hx_anonymous(array("description" => new _hx_array(array("Add a product in the database")), "param1" => new _hx_array(array("name")), "param2" => new _hx_array(array("price")), "param3" => new _hx_array(array("imageURL")), "param4" => new _hx_array(array("url"))))))));
+Api::$__meta__ = _hx_anonymous(array("fields" => _hx_anonymous(array("doc" => _hx_anonymous(array("description" => new _hx_array(array("display documentation")))), "addTag" => _hx_anonymous(array("description" => new _hx_array(array("Add a tag in the database")), "param1" => new _hx_array(array("name : the name of the tag \"sweet\", \"calm\", ...")), "param2" => new _hx_array(array("color : hexadecimal representation of a corresponding color : #614287")))), "getTags" => _hx_anonymous(array("description" => new _hx_array(array("Return the list of tags")))), "getNewTag" => _hx_anonymous(array("description" => new _hx_array(array("Return some tag based on history")))), "addProduct" => _hx_anonymous(array("description" => new _hx_array(array("Add a product in the database")), "param1" => new _hx_array(array("name : The name of the product")), "param2" => new _hx_array(array("price : The price of the product as a Float (0.75)")), "param3" => new _hx_array(array("imageURL : an url to an image of the product")), "param4" => new _hx_array(array("url : an url to buy the product")))), "getProducts" => _hx_anonymous(array("description" => new _hx_array(array("Return the list of products"))))))));

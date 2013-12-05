@@ -26,6 +26,9 @@ class php_db__PDO_BaseResultSet implements sys_db_ResultSet{
 			unset($i,$data);
 		}
 	}
+	public function hasNext() {
+		throw new HException("must override");
+	}
 	public function nextRow() {
 		throw new HException("must override");
 	}
@@ -43,6 +46,13 @@ class php_db__PDO_BaseResultSet implements sys_db_ResultSet{
 			}
 		}
 		return $o;
+	}
+	public function results() {
+		$list = new HList();
+		while($this->hasNext()) {
+			$list->add($this->next());
+		}
+		return $list;
 	}
 	public function __call($m, $a) {
 		if(isset($this->$m) && is_callable($this->$m))

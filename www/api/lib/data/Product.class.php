@@ -14,6 +14,9 @@ class data_Product extends sys_db_Object {
 	public $price;
 	public $imageURL;
 	public $url;
+	public function getObject() {
+		return _hx_anonymous(array("id" => $this->id, "name" => $this->name, "price" => $this->price, "imageURL" => $this->imageURL, "url" => $this->url));
+	}
 	public function __call($m, $a) {
 		if(isset($this->$m) && is_callable($this->$m))
 			return call_user_func_array($this->$m, $a);

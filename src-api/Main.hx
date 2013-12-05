@@ -18,7 +18,7 @@ class Main
 	{
 		sys.db.Manager.cnx = sys.db.Mysql.connect(
 			{
-				/*/
+				//
 				host : "localhost",
 				port : null,
 				user : "root",
@@ -26,7 +26,7 @@ class Main
 				database : "labeli",
 				socket : null
 				//*/
-				//
+				/*/
 				host : "mysql51-44.pro",
 				port : null,
 				user : "projetsbxnuit",
@@ -39,6 +39,7 @@ class Main
 
 		// Create missing tables
 		if(!sys.db.TableCreate.exists(Product.manager))         { sys.db.TableCreate.create(Product.manager); }
+		if(!sys.db.TableCreate.exists(Tag.manager))         	{ sys.db.TableCreate.create(Tag.manager); }
 
 		api = new Api();
 
