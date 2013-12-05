@@ -30,7 +30,6 @@ class Main
 
 	public function doDefault()
 	{
-		api.doc();
 	}
 	public function doApi(dispatch : Dispatch)
 	{
@@ -44,7 +43,7 @@ class Main
 		}
 		catch(s : String)
 		{
-			trace("Function error");
+			api.doc();
 		}
 	}
 	

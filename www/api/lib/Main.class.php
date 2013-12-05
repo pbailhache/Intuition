@@ -15,7 +15,6 @@ class Main {
 	}}
 	public $api;
 	public function doDefault() {
-		$this->api->doc();
 	}
 	public function doApi($dispatch) {
 		$params = new _hx_array(array());
@@ -30,7 +29,7 @@ class Main {
 		}catch(Exception $__hx__e) {
 			$_ex_ = ($__hx__e instanceof HException) ? $__hx__e->e : $__hx__e;
 			if(is_string($s = $_ex_)){
-				haxe_Log::trace("Function error", _hx_anonymous(array("fileName" => "Main.hx", "lineNumber" => 47, "className" => "Main", "methodName" => "doApi")));
+				$this->api->doc();
 			} else throw $__hx__e;;
 		}
 	}
