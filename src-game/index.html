@@ -11,8 +11,22 @@
 		<script src='lib/quintus_2d.js'></script>
 		<script src='lib/quintus_touch.js'></script>
 		<script src='lib/quintus_ui.js'></script>
+		<style type="text/css">
+		body
+		{
+			background-color: black;
+		}
+		#quintus_container
+		{
+			width: 960px;
+			margin: 0px auto;
+			position: relative;
+			background-color: rgb(134, 77, 77);
+			border: 1px solid black;
+		}
+		</style>
 	</head>
-	<body style="background-color: black;">
+	<body>
 		<script>
 			var Q = Quintus().include("Sprites, Scenes, Input, 2D, Touch, UI").setup({
 				width : 960,
@@ -29,14 +43,9 @@
 					});
 					this.add('2d, platformerControls');
 				},
-				step : function(dt) {
-					if (Q.inputs['left'] && this.p.direction == 'right') {
-						this.p.flip = 'x';
-					}
-					if (Q.inputs['right'] && this.p.direction == 'left') {
-						this.p.flip = false;
-					}
-				}
+
+				
+
 			});
 
 			Q.scene("level1", function(stage) {
