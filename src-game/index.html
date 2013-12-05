@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ScanixPlatformer</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src='lib/quintus.js'></script>
+		<script src='lib/quintus_sprites.js'></script>
+		<script src='lib/quintus_scenes.js'></script>
+		<script src='lib/quintus_input.js'></script>
+		<script src='lib/quintus_anim.js'></script>
+		<script src='lib/quintus_2d.js'></script>
+		<script src='lib/quintus_touch.js'></script>
+		<script src='lib/quintus_ui.js'></script>
+		<style type="text/css">
+		body
+		{
+			background-color: black;
+		}
+		#quintus_container
+		{
+			width: 960px;
+			margin: 0px auto;
+			position: relative;
+			background-color: rgb(134, 77, 77);
+			border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		<script>
+			var Q = Quintus().include("Sprites, Scenes, Input, 2D, Touch, UI").setup({
+				width : 960,
+				height : 640
+			}).controls().touch();
+
+			Q.Sprite.extend("Player", {
+				init : function(p) {
+					this._super(p, {
+						asset : "player.png",
+						x : 110,
+						y : 50,
+						jumpSpeed : -380
+					});
+					this.add('2d, platformerControls');
+				},
+
+				
+
+			});
+
+			Q.scene("level1", function(stage) {
+				var background = new Q.TileLayer({
+					dataAsset : 'level1.tmx',
+					layerIndex : 0,
+					sheet : 'tiles',
+					tileW : 64,
+					tileH : 64,
+					type : Q.SPRITE_NONE
+				});
+				stage.insert(background);
+				stage.collisionLayer(new Q.TileLayer({
+					dataAsset : 'level1.tmx',
+					layerIndex : 1,
+					sheet : 'tiles',
+					tileW : 64,
+					tileH : 64
+				}));
+
+				var player = stage.insert(new Q.Player());
+				stage.add("viewport").follow(player, {
+					x : true,
+					y : true
+				}, {
+					minX : 0,
+					maxX : background.p.w,
+					minY : 0,
+					maxY : background.p.h
+				});
+			});
+
+			//load assets
+			Q.load("tiles_map.png, player.png, level1.tmx", function() {
+				Q.sheet("tiles", "tiles_map.png", {
+					tilew : 64,
+					tileh : 64
+				});
+				Q.stageScene("level1");
+			});
+		</script>
+	</body>
+</html>
