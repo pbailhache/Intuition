@@ -94,12 +94,17 @@ class Api
 		Sys.print(haxe.Json.stringify({success : true}));
 	}
 
-	@description("Return the list of products")
-	public function getProducts()
+	@description("Return a product based on id")
+	@param1("id : id of the product")
+	public function getProduct(id : Int)
 	{
-		var result = [];
-		for(product in Product.manager.all())
-			result.push(product.getObject());
-		Sys.print(haxe.Json.stringify(result));
+		Sys.print(haxe.Json.stringify(Product.manager.get(id).getObject()));
+	}
+
+	@description("Return a tag based on id")
+	@param1("id : id of the product")
+	public function getTag(id : Int)
+	{
+		Sys.print(haxe.Json.stringify(Tag.manager.get(id).getObject()));
 	}
 }
