@@ -1,20 +1,4 @@
-<html>
-  <head>
-    <!-- Pull the engine from the Quintus CDN or load it locally -->
-    <!-- (use quintus-all.min.js for production) -->
-    <script src='http://cdn.html5quintus.com/v0.1.5/quintus-all.js'></script>
-  </head>
-   <body>
-     <script>
-     
-      // Now set up your game (most games will load a separate .js file)
-      var Q = Quintus()                          // Create a new engine instance
-              .include("Sprites, Scenes, Input, 2D, Touch, UI") // Load any needed modules
-              .setup()                           // Add a canvas element onto the page
-              .controls()                        // Add in default controls (keyboard, buttons)
-              .touch();                          // Add in touch support (for the UI)
-              
-      // You can create a sub-class by extending the Q.Sprite class to create Q.Player
+// You can create a sub-class by extending the Q.Sprite class to create Q.Player
 Q.Sprite.extend("Player",{
 
   // the init constructor is called on creation
@@ -22,7 +6,8 @@ Q.Sprite.extend("Player",{
   
     // You can call the parent's constructor with this._super(..)
     this._super(p, {
-      x: 90,           // You can also set additional properties that can
+      sheet: "player",  // Setting a sprite sheet sets sprite width and height
+      x: 410,           // You can also set additional properties that can
       y: 90            // be overridden on object creation
     });
     
@@ -40,36 +25,13 @@ Q.Sprite.extend("Player",{
         this.destroy();
       }
     });
-  },
-
-  draw: function(ctx) {
-    ctx.fillStyle = "red";
-    // Draw a filled rectangle centered at
-    // 0,0 (i.e. from -w/2,-h2 to w/2, h/2)
-    ctx.fillRect(-this.p.cx,
-                 -this.p.cy,
-                 this.p.w,
-                 this.p.h);
-
   }
-
 });
 
 // Sprites can be simple, the Tower sprite just sets a custom sprite sheet
 Q.Sprite.extend("Tower", {
   init: function(p) {
     this._super(p, { sheet: 'tower' });
-  },
-
-  draw: function(ctx) {
-    ctx.fillStyle = "red";
-    // Draw a filled rectangle centered at
-    // 0,0 (i.e. from -w/2,-h2 to w/2, h/2)
-    ctx.fillRect(-this.p.cx,
-                 -this.p.cy,
-                 this.p.w,
-                 this.p.h);
-
   }
 });
 
@@ -99,17 +61,6 @@ Q.Sprite.extend("Enemy",{
         collision.obj.p.vy = -300;
       }
     });
-  },
-
-   draw: function(ctx) {
-    ctx.fillStyle = "red";
-    // Draw a filled rectangle centered at
-    // 0,0 (i.e. from -w/2,-h2 to w/2, h/2)
-    ctx.fillRect(-this.p.cx,
-                 -this.p.cy,
-                 this.p.w,
-                 this.p.h);
-
   }
 });
 
@@ -130,8 +81,8 @@ Q.scene("level1",function(stage) {
   stage.add("viewport").follow(player);
   
   // Add in a couple of enemies
-  stage.insert(new Q.Enemy({ x: 50, y: 20 }));
-  stage.insert(new Q.Enemy({ x: 50, y: 20 }));
+  stage.insert(new Q.Enemy({ x: 700, y: 0 }));
+  stage.insert(new Q.Enemy({ x: 800, y: 0 }));
   
   // Finally add in the tower goal
   stage.insert(new Q.Tower({ x: 180, y: 50 }));
@@ -162,15 +113,15 @@ Q.scene('endGame',function(stage) {
 
 // Q.load can be called at any time to load additional assets
 // assets that are already loaded will be skipped
-Q.load("",
+Q.load("sprites.png, sprites.json, level.json, tiles.png",
   // The callback will be triggered when everything is loaded
   function() {
     // Sprites sheets can be created manually
     Q.sheet("tiles","tiles.png", { tilew: 32, tileh: 32 });
     
+    // Or from a .json asset that defines sprite locations
+    Q.compileSheets("sprites.png","sprites.json");
+    
     // Finally, call stageScene to run the game
     Q.stageScene("level1");
   });
-   </script>
-   </body>
-</html>
