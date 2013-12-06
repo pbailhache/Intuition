@@ -42,15 +42,46 @@
 						jumpSpeed : -380
 					});
 					this.add('2d, platformerControls');
-				},
-
 				
+				this.on("hit.sprite",function(collision) 
+				{
+			      if(collision.obj.isA("End")) 
+			      {
+			        Q.stageScene("endGame",1, { label: "You Won!" }); 
+			        this.destroy();
+			      }
+			    });
+			}
 
+			});
+
+			Q.Sprite.extend("End", {
+			  init: function(p) {
+			    this._super(p, { asset : "player.png" });
+			  }
+
+
+			});
+
+			Q.scene('endGame',function(stage) {
+			  var box = stage.insert(new Q.UI.Container({
+			    x: Q.width/2, y: Q.height/2, fill: "rgba(0,0,0,0.5)"
+			  }));
+			  
+			  var button = box.insert(new Q.UI.Button({ x: 0, y: 0, fill: "#CCCCCC",
+			                                           label: "Play Again" }))         
+			  var label = box.insert(new Q.UI.Text({x:10, y: -10 - button.p.h, 
+			                                        label: stage.options.label }));
+			  button.on("click",function() {
+			    Q.clearStages();
+			    Q.stageScene('level1');
+			  });
+			  box.fit(20);
 			});
 
 			Q.scene("level1", function(stage) {
 				var background = new Q.TileLayer({
-					dataAsset : 'level1.tmx',
+					dataAsset : 'level2.tmx',
 					layerIndex : 0,
 					sheet : 'tiles',
 					tileW : 64,
@@ -59,7 +90,7 @@
 				});
 				stage.insert(background);
 				stage.collisionLayer(new Q.TileLayer({
-					dataAsset : 'level1.tmx',
+					dataAsset : 'level2.tmx',
 					layerIndex : 1,
 					sheet : 'tiles',
 					tileW : 64,
@@ -67,6 +98,7 @@
 				}));
 
 				var player = stage.insert(new Q.Player());
+				stage.insert(new Q.End({x:2432,y:64}));
 				stage.add("viewport").follow(player, {
 					x : true,
 					y : true
@@ -79,8 +111,8 @@
 			});
 
 			//load assets
-			Q.load("tiles_map.png, player.png, level1.tmx", function() {
-				Q.sheet("tiles", "tiles_map.png", {
+			Q.load("tiles.png, player.png, level2.tmx", function() {
+				Q.sheet("tiles", "tiles.png", {
 					tilew : 64,
 					tileh : 64
 				});
