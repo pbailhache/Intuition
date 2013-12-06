@@ -327,7 +327,7 @@ Q.scene("level9", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
-	Q.audio.play('music.mp3',{ loop: true });
+	Q.audio.play('mario.mp3',{ loop: true });
 });
 
 
