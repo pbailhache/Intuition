@@ -1,4 +1,5 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/buttons.js"></script> 
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -11,6 +12,7 @@
 </head>
 <body>
 	<div id="content">
+		<div id="colorblind">Colorblind mode</div>
 			<a href="apropos.php" id="logo">
 				<img src="../src-icons/logo60x60.png"alt="logo">
 			</a>
