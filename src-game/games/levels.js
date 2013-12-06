@@ -30,8 +30,7 @@ Q.scene("level1", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
-
-	Q.audio.play('music.mp3');
+	Q.audio.play('music.mp3',{ loop: true });
 });
 
 /**********************     Level 2      **************************/
@@ -67,6 +66,7 @@ Q.scene("level2", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
+	Q.audio.play('music.mp3',{ loop: true });
 });
 
 /**********************     Level 3      **************************/
@@ -79,6 +79,7 @@ Q.scene("level3", function(stage) {
 		tileH: 64,
 		type: Q.SPRITE_NONE
 	});
+	Q.audio.stop();
 	stage.insert(background);
 	stage.collisionLayer(new Q.TileLayer({
 		dataAsset: 'level3.tmx',
@@ -101,6 +102,7 @@ Q.scene("level3", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
+	Q.audio.play('music.mp3',{ loop: true });
 });
 
 
@@ -114,6 +116,7 @@ Q.scene("level4", function(stage) {
 		tileH: 64,
 		type: Q.SPRITE_NONE
 	});
+	Q.audio.stop();
 	stage.insert(background);
 	stage.collisionLayer(new Q.TileLayer({
 		dataAsset: 'level4.tmx',
@@ -136,6 +139,7 @@ Q.scene("level4", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
+	Q.audio.play('music.mp3',{ loop: true });
 });
 
 
@@ -149,6 +153,7 @@ Q.scene("level5", function(stage) {
 		tileH: 64,
 		type: Q.SPRITE_NONE
 	});
+	Q.audio.stop();
 	stage.insert(background);
 	stage.collisionLayer(new Q.TileLayer({
 		dataAsset: 'level5.tmx',
@@ -171,6 +176,7 @@ Q.scene("level5", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
+	Q.audio.play('music.mp3',{ loop: true });
 });
 
 
@@ -184,6 +190,7 @@ Q.scene("level6", function(stage) {
 		tileH: 64,
 		type: Q.SPRITE_NONE
 	});
+	Q.audio.stop();
 	stage.insert(background);
 	stage.collisionLayer(new Q.TileLayer({
 		dataAsset: 'level6.tmx',
@@ -206,6 +213,7 @@ Q.scene("level6", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
+	Q.audio.play('music.mp3',{ loop: true });
 });
 
 
@@ -219,6 +227,7 @@ Q.scene("level7", function(stage) {
 		tileH: 64,
 		type: Q.SPRITE_NONE
 	});
+	Q.audio.stop();
 	stage.insert(background);
 	stage.collisionLayer(new Q.TileLayer({
 		dataAsset: 'level7.tmx',
@@ -241,6 +250,7 @@ Q.scene("level7", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
+	Q.audio.play('music.mp3',{ loop: true });
 });
 
 
@@ -254,6 +264,7 @@ Q.scene("level8", function(stage) {
 		tileH: 64,
 		type: Q.SPRITE_NONE
 	});
+	Q.audio.stop();
 	stage.insert(background);
 	stage.collisionLayer(new Q.TileLayer({
 		dataAsset: 'level8.tmx',
@@ -276,6 +287,7 @@ Q.scene("level8", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
+	Q.audio.play('music.mp3',{ loop: true });
 });
 
 /**********************     Level 9      **************************/
@@ -288,6 +300,7 @@ Q.scene("level9", function(stage) {
 		tileH: 64,
 		type: Q.SPRITE_NONE
 	});
+	Q.audio.stop();
 	stage.insert(background);
 	stage.collisionLayer(new Q.TileLayer({
 		dataAsset: 'level9.tmx',
@@ -314,6 +327,7 @@ Q.scene("level9", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
+	Q.audio.play('music.mp3',{ loop: true });
 });
 
 
@@ -327,6 +341,7 @@ Q.scene("level10", function(stage) {
 		tileH: 64,
 		type: Q.SPRITE_NONE
 	});
+	Q.audio.stop();
 	stage.insert(background);
 	stage.collisionLayer(new Q.TileLayer({
 		dataAsset: 'level10.tmx',
@@ -349,4 +364,5 @@ Q.scene("level10", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
+	Q.audio.play('music.mp3',{ loop: true });
 });
