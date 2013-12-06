@@ -1,4 +1,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="scripts/buttons.js"></script> 
+
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -11,6 +14,7 @@
 </head>
 <body>
 	<div id="content">
+		<div id="colorblind">Colorblind mode</div>
 		<div id="choiceFrame">
 			<div id="notion">
 				calme
@@ -23,4 +27,5 @@
 		</div>
 	</div>
 </body>
+</html>
 		
