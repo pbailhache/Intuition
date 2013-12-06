@@ -1,25 +1,81 @@
-Q.scene('endGame', function(stage) {
-	var box = stage.insert(new Q.UI.Container({
-		x: Q.width / 2, y: Q.height / 2, fill: "rgba(0,0,0,0.5)"
-	}));
+Q.scene('endGame', function(rating) {
+	var rateTag = new XMLHttpRequest();
 
-	var button = box.insert(new Q.UI.Button({x: 0, y: 0, fill: "#CCCCCC",
-		label: "Aller au niveau suivant"}))
-	var label = box.insert(new Q.UI.Text({x: 10, y: -10 - button.p.h,
-		label: stage.options.label}));
-	button.on("click", function() {
-		Q.clearStages();
-		window.levelGame++;
-		Q.stageScene('level'+window.levelGame);
-	});
-	box.fit(20);
+	rateTag.onreadystatechange = function() {
+		if (rateTag.readyState == 4)
+		{
+			var getAvailProducts = new XMLHttpRequest();
+
+			getAvailProducts.onreadystatechange = function() {
+				if (getAvailProducts.readyState == 4)
+				{
+					if (getAvailProducts.responseText != "null")
+					{
+						var products = JSON.parse(getAvailProducts.responseText);
+						for (var i = 0; i < products.length; i++)
+						{
+							var link = document.createElement("a");
+							var productsDiv = document.getElementById("products");
+							link.className = "product";
+							link.href = products[i].url;
+							link.innerHTML = "fsdfvsdvcsd" + '<img src="' + products[i].imageURL + '" alt="' + products[i].name + '" title="' + products[i].name + '"/>';
+
+							productsDiv.appendChild(link);
+
+							var resetTags = new XMLHttpRequest();
+							resetTags.onreadystatechange = function() {};
+							resetTag.open("GET", "http://developersrift.projets-bx1.fr/api/resetUserTags", true);
+							resetTag.send(null);
+						}
+					}
+					var getNewTag = new XMLHttpRequest();
+
+					getNewTag.onreadystatechange = function() {
+						if (getNewTag.readyState == 4)
+						{
+							Q.clearStages();
+							window.levelGame++;
+							if (window.levelGame > window.maxLevel)
+								window.levelGame = 1;
+							var response = JSON.parse(getNewTag.responseText);
+							document.getElementById("title").innerHTML = response.name;
+							document.getElementById("quintus_container").style.background = "#" + response.color;
+							window.levelTag = response.name;
+							Q.stageScene('level' + window.levelGame);
+						}
+					};
+					getNewTag.open("GET", "http://developersrift.projets-bx1.fr/api/getNewTag", true);
+					getNewTag.send(null);
+
+				}
+			};
+			getAvailProducts.open("GET", "http://developersrift.projets-bx1.fr/api/getAvailProducts", true);
+			getAvailProducts.send(null);
+		}
+	};
+	rateTag.open("GET", "http://developersrift.projets-bx1.fr/api/rateTag?tag=" + window.levelTag + "&rating=" + window.rating, true);
+	rateTag.send(null);
+
 });
 
 //load assets
-Q.load("tiles.png, player.png, level1.tmx, music.mp3, level2.tmx, level3.tmx, level4.tmx, level5.tmx, level6.tmx, blackflaggreen.png, blackflagred.png, blackflaggrey.png", function() {
+Q.load("tiles.png, player.png, level1.tmx, music.mp3, level2.tmx, level3.tmx, level4.tmx, level5.tmx, level6.tmx, level7.tmx, level8.tmx, level9.tmx, blackflaggreen.png, blackflagred.png, blackflaggrey.png", function() {
 	Q.sheet("tiles", "tiles.png", {
 		tilew: 64,
 		tileh: 64
 	});
-	Q.stageScene("level2");
+	var XHR = new XMLHttpRequest();
+
+	XHR.onreadystatechange = function() {
+		if (XHR.readyState == 4)
+		{
+			var response = JSON.parse(XHR.responseText);
+			document.getElementById("title").innerHTML = response.name;
+			document.getElementById("quintus_container").style.background = "#" + response.color;
+			window.levelTag = response.name;
+			Q.stageScene("level1");
+		}
+	};
+	XHR.open("GET", "http://developersrift.projets-bx1.fr/api/getNewTag", true);
+	XHR.send(null);
 });

@@ -30,6 +30,8 @@ Q.scene("level1", function(stage) {
 		minY: 0,
 		maxY: background.p.h
 	});
+
+	Q.audio.play('music.mp3');
 });
 
 /**********************     Level 2      **************************/
@@ -42,6 +44,7 @@ Q.scene("level2", function(stage) {
 		tileH: 64,
 		type: Q.SPRITE_NONE
 	});
+	Q.audio.stop();
 	stage.insert(background);
 	stage.collisionLayer(new Q.TileLayer({
 		dataAsset: 'level2.tmx',
@@ -194,6 +197,114 @@ Q.scene("level6", function(stage) {
 	stage.insert(new Q.EndYes({x: 2400, y: 96}));
 	stage.insert(new Q.EndNo({x: 1760, y: 864}));
 	stage.insert(new Q.End({x: 96, y: 1184}));
+	stage.add("viewport").follow(player, {
+		x: true,
+		y: true
+	}, {
+		minX: 0,
+		maxX: background.p.w,
+		minY: 0,
+		maxY: background.p.h
+	});
+});
+
+
+/**********************     Level 7      **************************/
+Q.scene("level7", function(stage) {
+	var background = new Q.TileLayer({
+		dataAsset: 'level7.tmx',
+		layerIndex: 0,
+		sheet: 'tiles',
+		tileW: 64,
+		tileH: 64,
+		type: Q.SPRITE_NONE
+	});
+	stage.insert(background);
+	stage.collisionLayer(new Q.TileLayer({
+		dataAsset: 'level7.tmx',
+		layerIndex: 1,
+		sheet: 'tiles',
+		tileW: 64,
+		tileH: 64
+	}));
+
+	var player = stage.insert(new Q.Player());
+	stage.insert(new Q.EndYes({x: 2400, y: 96}));
+	stage.insert(new Q.EndNo({x: 1760, y: 864}));
+	stage.insert(new Q.End({x: 96, y: 1184}));
+	stage.add("viewport").follow(player, {
+		x: true,
+		y: true
+	}, {
+		minX: 0,
+		maxX: background.p.w,
+		minY: 0,
+		maxY: background.p.h
+	});
+});
+
+
+/**********************     Level 8      **************************/
+Q.scene("level8", function(stage) {
+	var background = new Q.TileLayer({
+		dataAsset: 'level8.tmx',
+		layerIndex: 0,
+		sheet: 'tiles',
+		tileW: 64,
+		tileH: 64,
+		type: Q.SPRITE_NONE
+	});
+	stage.insert(background);
+	stage.collisionLayer(new Q.TileLayer({
+		dataAsset: 'level8.tmx',
+		layerIndex: 1,
+		sheet: 'tiles',
+		tileW: 64,
+		tileH: 64
+	}));
+
+	var player = stage.insert(new Q.Player());
+	stage.insert(new Q.EndYes({x: 2400, y: 96}));
+	stage.insert(new Q.EndNo({x: 1760, y: 864}));
+	stage.insert(new Q.End({x: 96, y: 1184}));
+	stage.add("viewport").follow(player, {
+		x: true,
+		y: true
+	}, {
+		minX: 0,
+		maxX: background.p.w,
+		minY: 0,
+		maxY: background.p.h
+	});
+});
+
+/**********************     Level 9      **************************/
+Q.scene("level9", function(stage) {
+	var background = new Q.TileLayer({
+		dataAsset: 'level9.tmx',
+		layerIndex: 0,
+		sheet: 'tiles',
+		tileW: 64,
+		tileH: 64,
+		type: Q.SPRITE_NONE
+	});
+	stage.insert(background);
+	stage.collisionLayer(new Q.TileLayer({
+		dataAsset: 'level9.tmx',
+		layerIndex: 1,
+		sheet: 'tiles',
+		tileW: 64,
+		tileH: 64
+	}));
+
+	var player = stage.insert(new Q.Player({jumpSpeed:-735}));
+	stage.insert(new Q.EndYes({x: 12000, y: 480}));
+	stage.insert(new Q.EndYes({x: 12192, y: 352}));
+	stage.insert(new Q.EndYes({x: 12192, y: 352}));
+	stage.insert(new Q.EndYes({x: 12384, y: 224}));
+	stage.insert(new Q.EndYes({x: 12576, y: 352}));
+	stage.insert(new Q.EndNo({x: 11744, y: 544}));
+	stage.insert(new Q.End({x: 32, y: 544}));
 	stage.add("viewport").follow(player, {
 		x: true,
 		y: true

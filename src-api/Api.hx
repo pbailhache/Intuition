@@ -86,7 +86,11 @@ class Api
 		var result = [];
 		for(tag in Tag.manager.all())
 			result.push(tag.getObject());
-		Sys.print(haxe.Json.stringify(result[Std.random(result.length)]));
+
+		var tag = result[Std.random(result.length)];
+		while(Reflect.hasField(haxe.Json.parse(Session.exists("ratings") ? Session.get("ratings") : "{}"), tag.name))
+			var tag = result[Std.random(result.length)];
+		Sys.print(haxe.Json.stringify(tag));
 	}
 
 	@description("Add a tag in the database")
