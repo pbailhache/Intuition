@@ -54,7 +54,6 @@ class Main
 		{
 			doError(new Dispatch(Web.getURI(), Web.getParams()));
 		}
-		
 	}
 
 	public function doDefault()

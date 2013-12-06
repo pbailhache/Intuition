@@ -53,7 +53,14 @@ class Api {
 		Sys::hprint(haxe_Json::stringify(data_Tag::$manager->unsafeGet($id, false)->getObject(), null));
 	}
 	public function getNewTag() {
-		Sys::hprint(haxe_Json::stringify(_hx_anonymous(array("name" => "Test", "color" => "#123456")), null));
+		$result = new _hx_array(array());
+		if(null == data_Tag::$manager->all(null)) throw new HException('null iterable');
+		$__hx__it = data_Tag::$manager->all(null)->iterator();
+		while($__hx__it->hasNext()) {
+			$tag = $__hx__it->next();
+			$result->push($tag->getObject());
+		}
+		Sys::hprint(haxe_Json::stringify($result[Std::random($result->length)], null));
 	}
 	public function addTag($name, $color) {
 		$name = strtolower($name);

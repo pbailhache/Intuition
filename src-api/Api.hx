@@ -81,7 +81,10 @@ class Api
 	@description("Return some tag based on history")
 	public function getNewTag()
 	{
-		Sys.print(haxe.Json.stringify({name : "Test", color : "#123456"}));
+		var result = [];
+		for(tag in Tag.manager.all())
+			result.push(tag.getObject());
+		Sys.print(haxe.Json.stringify(result[Std.random(result.length)]));
 	}
 
 	@description("Add a tag in the database")
