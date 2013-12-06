@@ -16,10 +16,10 @@ Q.scene('endGame', function(stage) {
 });
 
 //load assets
-Q.load("tiles.png, player.png, level1.tmx, level2.tmx, blackflaggreen.png, blackflagred.png, blackflaggrey.png", function() {
+Q.load("tiles.png, player.png, level1.tmx, level2.tmx, level3.tmx, level4.tmx, level5.tmx, level6.tmx, blackflaggreen.png, blackflagred.png, blackflaggrey.png", function() {
 	Q.sheet("tiles", "tiles.png", {
 		tilew: 64,
 		tileh: 64
 	});
-	Q.stageScene("level1");
+	Q.stageScene("level6");
 });
