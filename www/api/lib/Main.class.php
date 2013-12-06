@@ -4,7 +4,7 @@ class Main {
 	public function __construct() {
 		if(!php_Boot::$skip_constructor) {
 		header("Access-Control-Allow-Origin" . ": " . "*");
-		sys_db_Manager::set_cnx(sys_db_Mysql::connect(_hx_anonymous(array("host" => "mysql51-44.pro", "port" => null, "user" => "projetsbxnuit", "pass" => "greenShrimp", "database" => "projetsbxnuit", "socket" => null))));
+		sys_db_Manager::set_cnx(sys_db_Mysql::connect(_hx_anonymous(array("host" => "localhost", "port" => null, "user" => "root", "pass" => "", "database" => "labeli", "socket" => null))));
 		if(!sys_db_TableCreate::exists(data_Product::$manager)) {
 			sys_db_TableCreate::create(data_Product::$manager, null);
 		}

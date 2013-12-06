@@ -190,8 +190,35 @@ class haxe_Json {
 		else
 			throw new HException('Unable to call <'.$m.'>');
 	}
+	static function parse($text) {
+		return haxe_Json::phpJsonDecode($text);
+	}
 	static function stringify($value, $replacer = null) {
 		return haxe_Json::phpJsonEncode($value, $replacer);
+	}
+	static function phpJsonDecode($json) {
+		$val = json_decode($json);
+		return haxe_Json::convertAfterDecode($val);
+	}
+	static function convertAfterDecode($val) {
+		$arr = null;
+		if(is_object($val)) {
+			{
+				$arr1 = php_Lib::associativeArrayOfObject($val);
+				$arr = array_map((isset(haxe_Json::$convertAfterDecode) ? haxe_Json::$convertAfterDecode: array("haxe_Json", "convertAfterDecode")), $arr1);
+			}
+			return _hx_anonymous($arr);
+		} else {
+			if(is_array($val)) {
+				{
+					$arr1 = $val;
+					$arr = array_map((isset(haxe_Json::$convertAfterDecode) ? haxe_Json::$convertAfterDecode: array("haxe_Json", "convertAfterDecode")), $arr1);
+				}
+				return new _hx_array($arr);
+			} else {
+				return $val;
+			}
+		}
 	}
 	static function phpJsonEncode($val, $replacer = null) {
 		if(null !== $replacer) {

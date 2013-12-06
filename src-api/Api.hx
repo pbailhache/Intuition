@@ -1,4 +1,5 @@
 import data.*;
+import php.Session;
 
 class Api
 {
@@ -164,6 +165,33 @@ class Api
 		new ProductTag(Product.manager.get(Std.parseInt(productId)), Tag.manager.get(Std.parseInt(tagId)), Std.parseFloat(score)).insert();
 		Sys.print(haxe.Json.stringify({success : true}));
 	}
+
+	/*
+	 * USER FUNCTIONS
+	 */
+
+	@description("Get user tags")
+	public function getUserTags()
+	{
+		if(!Session.exists("ratings"))
+			Session.set("ratings", "{}");
+		Sys.print(Session.get("ratings"));
+	}
+
+	@description("Rate a tag")
+	@param1("tag : The tag to be rated")
+	@param2("rating : the rating (-1 : Deny, 0 : Ignore, 1 : Accept)")
+	public function rateTag(tag : String, rating : String)
+	{
+		if(!Session.exists("ratings"))
+			Session.set("ratings", "{}");
+		var ratings = haxe.Json.parse(Session.get("ratings"));
+		Reflect.setField(ratings, tag, Std.parseInt(rating));
+		Session.set("ratings", haxe.Json.stringify(ratings));
+		
+		Sys.print(haxe.Json.stringify({success : true}));
+	}
+
 
 	@description("Init product database")
 	public function initProducts()
