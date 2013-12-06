@@ -61,7 +61,7 @@ Q.scene('endGame', function(rating) {
 });
 
 //load assets
-Q.load("tiles.png, player.png, level1.tmx, music.mp3, level2.tmx, level3.tmx, level4.tmx, level5.tmx, level6.tmx, level7.tmx, level8.tmx, level9.tmx, blackflaggreen.png, blackflagred.png, blackflaggrey.png", function() {
+Q.load("tiles.png, player.png, level1.tmx, music.mp3, level2.tmx, level3.tmx, level4.tmx, level5.tmx, level6.tmx, level7.tmx, level8.tmx, level9.tmx, level10.tmx, blackflaggreen.png, blackflagred.png, blackflaggrey.png", function() {
 	Q.sheet("tiles", "tiles.png", {
 		tilew: 64,
 		tileh: 64
@@ -75,7 +75,7 @@ Q.load("tiles.png, player.png, level1.tmx, music.mp3, level2.tmx, level3.tmx, le
 			document.getElementById("title").innerHTML = response.name;
 			document.getElementById("quintus_container").style.background = "#" + response.color;
 			window.levelTag = response.name;
-			Q.stageScene("level10");
+			Q.stageScene("level1");
 		}
 	};
 	XHR.open("GET", "http://developersrift.projets-bx1.fr/api/getNewTag", true);
