@@ -1,3 +1,4 @@
+<script type="text/javascript" src="scripts/colorblind.js"></script> 
 <html>
 <head>
 	<meta charset="utf-8" />
