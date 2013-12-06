@@ -18,15 +18,17 @@ Q.scene('endGame', function(rating) {
 							var productsDiv = document.getElementById("products");
 							link.className = "product";
 							link.href = products[i].url;
-							link.innerHTML = "fsdfvsdvcsd" + '<img src="' + products[i].imageURL + '" alt="' + products[i].name + '" title="' + products[i].name + '"/>';
+							link.setAttribute("target","_blank");
+							link.innerHTML = '<img src="' + products[i].imageURL + '" alt="' + products[i].name + '" title="' + products[i].name + '"/>';
 
 							productsDiv.appendChild(link);
-
-							var resetTags = new XMLHttpRequest();
-							resetTags.onreadystatechange = function() {};
-							resetTag.open("GET", "http://developersrift.projets-bx1.fr/api/resetUserTags", true);
-							resetTag.send(null);
 						}
+
+
+						var resetTags = new XMLHttpRequest();
+						resetTags.onreadystatechange = function() {};
+						resetTags.open("GET", "http://developersrift.projets-bx1.fr/api/resetUserTags", true);
+						resetTags.send(null);
 					}
 					var getNewTag = new XMLHttpRequest();
 
@@ -73,7 +75,7 @@ Q.load("tiles.png, player.png, level1.tmx, music.mp3, level2.tmx, level3.tmx, le
 			document.getElementById("title").innerHTML = response.name;
 			document.getElementById("quintus_container").style.background = "#" + response.color;
 			window.levelTag = response.name;
-			Q.stageScene("level1");
+			Q.stageScene("level10");
 		}
 	};
 	XHR.open("GET", "http://developersrift.projets-bx1.fr/api/getNewTag", true);

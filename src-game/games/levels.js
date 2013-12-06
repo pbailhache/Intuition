@@ -315,3 +315,38 @@ Q.scene("level9", function(stage) {
 		maxY: background.p.h
 	});
 });
+
+
+/**********************     Level 10      **************************/
+Q.scene("level10", function(stage) {
+	var background = new Q.TileLayer({
+		dataAsset: 'level10.tmx',
+		layerIndex: 0,
+		sheet: 'tiles',
+		tileW: 64,
+		tileH: 64,
+		type: Q.SPRITE_NONE
+	});
+	stage.insert(background);
+	stage.collisionLayer(new Q.TileLayer({
+		dataAsset: 'level10.tmx',
+		layerIndex: 1,
+		sheet: 'tiles',
+		tileW: 64,
+		tileH: 64
+	}));
+
+	var player = stage.insert(new Q.Player({jumpSpeed:-2000}));
+	stage.insert(new Q.EndYes({x: 608, y: 544}));
+	stage.insert(new Q.EndNo({x: 2016, y: 800}));
+	stage.insert(new Q.End({x: 96, y: 1184}));
+	stage.add("viewport").follow(player, {
+		x: true,
+		y: true
+	}, {
+		minX: 0,
+		maxX: background.p.w,
+		minY: 0,
+		maxY: background.p.h
+	});
+});
