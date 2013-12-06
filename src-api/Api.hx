@@ -238,9 +238,10 @@ class Api
 	}
 
 	@description("Reset user ratings")
-	private function resetUserRatings()
+	private function resetUserTags()
 	{
-		php.Session.clear();
+		php.Session.remove("ratings");
+		Sys.print(haxe.Json.stringify({success : true}));
 	}
 
 	@description("Init product database")

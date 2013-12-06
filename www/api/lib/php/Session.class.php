@@ -17,6 +17,10 @@ class php_Session {
 		php_Session::start();
 		return array_key_exists($name, $_SESSION);
 	}
+	static function remove($name) {
+		php_Session::start();
+		unset($_SESSION[$name]);
+	}
 	static $started;
 	static function start() {
 		if(php_Session::$started) {
@@ -24,9 +28,6 @@ class php_Session {
 		}
 		php_Session::$started = true;
 		session_start();
-	}
-	static function clear() {
-		session_unset();
 	}
 	function __toString() { return 'php.Session'; }
 }
