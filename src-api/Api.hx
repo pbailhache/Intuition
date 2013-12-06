@@ -1,4 +1,5 @@
 import data.*;
+import php.Session;
 
 class Api
 {
@@ -81,7 +82,10 @@ class Api
 	@description("Return some tag based on history")
 	public function getNewTag()
 	{
-		Sys.print(haxe.Json.stringify({name : "Test", color : "#123456"}));
+		var result = [];
+		for(tag in Tag.manager.all())
+			result.push(tag.getObject());
+		Sys.print(haxe.Json.stringify(result[Std.random(result.length)]));
 	}
 
 	@description("Add a tag in the database")
@@ -89,8 +93,16 @@ class Api
 	@param2("color : hexadecimal representation of a corresponding color : 614287")
 	public function addTag(name : String, color : String)
 	{
-		new Tag(name, color).insert();
-		Sys.print(haxe.Json.stringify({success : true}));
+		name = name.toLowerCase();
+		if(name == "" || color == "" || Tag.manager.count($name == name) > 0)
+		{
+			Sys.print(haxe.Json.stringify({success : false}));
+		}
+		else
+		{
+			new Tag(name, color).insert();
+			Sys.print(haxe.Json.stringify({success : true}));
+		}
 	}
 
 	/*
@@ -153,6 +165,33 @@ class Api
 		new ProductTag(Product.manager.get(Std.parseInt(productId)), Tag.manager.get(Std.parseInt(tagId)), Std.parseFloat(score)).insert();
 		Sys.print(haxe.Json.stringify({success : true}));
 	}
+
+	/*
+	 * USER FUNCTIONS
+	 */
+
+	@description("Get user tags")
+	public function getUserTags()
+	{
+		if(!Session.exists("ratings"))
+			Session.set("ratings", "{}");
+		Sys.print(Session.get("ratings"));
+	}
+
+	@description("Rate a tag")
+	@param1("tag : The tag to be rated")
+	@param2("rating : the rating (-1 : Deny, 0 : Ignore, 1 : Accept)")
+	public function rateTag(tag : String, rating : String)
+	{
+		if(!Session.exists("ratings"))
+			Session.set("ratings", "{}");
+		var ratings = haxe.Json.parse(Session.get("ratings"));
+		Reflect.setField(ratings, tag, Std.parseInt(rating));
+		Session.set("ratings", haxe.Json.stringify(ratings));
+		
+		Sys.print(haxe.Json.stringify({success : true}));
+	}
+
 
 	@description("Init product database")
 	public function initProducts()

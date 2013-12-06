@@ -41,6 +41,7 @@ class Main
 		// Create missing tables
 		if(!sys.db.TableCreate.exists(Product.manager))         { sys.db.TableCreate.create(Product.manager); }
 		if(!sys.db.TableCreate.exists(Tag.manager))         	{ sys.db.TableCreate.create(Tag.manager); 	  }
+		if(!sys.db.TableCreate.exists(ProductTag.manager))         	{ sys.db.TableCreate.create(ProductTag.manager); 	  }
 
 		api = new Api();
 
@@ -53,7 +54,6 @@ class Main
 		{
 			doError(new Dispatch(Web.getURI(), Web.getParams()));
 		}
-		
 	}
 
 	public function doDefault()

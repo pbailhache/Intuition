@@ -11,6 +11,9 @@ class Main {
 		if(!sys_db_TableCreate::exists(data_Tag::$manager)) {
 			sys_db_TableCreate::create(data_Tag::$manager, null);
 		}
+		if(!sys_db_TableCreate::exists(data_ProductTag::$manager)) {
+			sys_db_TableCreate::create(data_ProductTag::$manager, null);
+		}
 		$this->api = new Api();
 		try {
 			_hx_deref(new haxe_web_Dispatch(php_Web::getURI(), php_Web::getParams()))->runtimeDispatch(haxe_web_Dispatch::extractConfig($this));

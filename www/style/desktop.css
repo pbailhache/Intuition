@@ -44,6 +44,7 @@ body
 	font-size: 10em;
 	margin: 5% auto auto auto;
 	top: 20%;
+	text-transform:lowercase;
 }
 
 #choices
