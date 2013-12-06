@@ -60,7 +60,12 @@ class Api {
 			$tag = $__hx__it->next();
 			$result->push($tag->getObject());
 		}
-		Sys::hprint(haxe_Json::stringify($result[Std::random($result->length)], null));
+		$tag = $result[Std::random($result->length)];
+		while(Api_0($this, $result, $tag)) {
+			$tag1 = $result[Std::random($result->length)];
+			unset($tag1);
+		}
+		Sys::hprint(haxe_Json::stringify($tag, null));
 	}
 	public function addTag($name, $color) {
 		$name = strtolower($name);
@@ -1342,3 +1347,9 @@ class Api {
 	function __toString() { return 'Api'; }
 }
 Api::$__meta__ = _hx_anonymous(array("fields" => _hx_anonymous(array("doc" => _hx_anonymous(array("description" => new _hx_array(array("display documentation")))), "getTags" => _hx_anonymous(array("description" => new _hx_array(array("Return the list of tags")))), "getTag" => _hx_anonymous(array("description" => new _hx_array(array("Return a tag based on id")), "param1" => new _hx_array(array("id : id of the product")))), "getNewTag" => _hx_anonymous(array("description" => new _hx_array(array("Return some tag based on history")))), "addTag" => _hx_anonymous(array("description" => new _hx_array(array("Add a tag in the database")), "param1" => new _hx_array(array("name : the name of the tag \"sweet\", \"calm\", ...")), "param2" => new _hx_array(array("color : hexadecimal representation of a corresponding color : 614287")))), "getProducts" => _hx_anonymous(array("description" => new _hx_array(array("Return the list of products")))), "getProduct" => _hx_anonymous(array("description" => new _hx_array(array("Return a product based on id")), "param1" => new _hx_array(array("id : id of the product")))), "addProduct" => _hx_anonymous(array("description" => new _hx_array(array("Add a product in the database")), "param1" => new _hx_array(array("name : The name of the product")), "param2" => new _hx_array(array("price : The price of the product as a Float (0.75)")), "param3" => new _hx_array(array("imageURL : an url to an image of the product")), "param4" => new _hx_array(array("url : an url to buy the product")))), "getProductTags" => _hx_anonymous(array("description" => new _hx_array(array("Return the list of product tags")))), "getProductTagsByProduct" => _hx_anonymous(array("description" => new _hx_array(array("Return products tag based on product id")), "param1" => new _hx_array(array("id : id of the product")))), "getProductTagsByTag" => _hx_anonymous(array("description" => new _hx_array(array("Return a product tag based on tag id")), "param1" => new _hx_array(array("id : id of the tag")))), "addProductTag" => _hx_anonymous(array("description" => new _hx_array(array("Add a product tag in the database")), "param1" => new _hx_array(array("productId : The id of the product")), "param2" => new _hx_array(array("tagId : The id of the tag")), "param3" => new _hx_array(array("score : The score")))), "getUserTags" => _hx_anonymous(array("description" => new _hx_array(array("Get user tags")))), "rateTag" => _hx_anonymous(array("description" => new _hx_array(array("Rate a tag")), "param1" => new _hx_array(array("tag : The tag to be rated")), "param2" => new _hx_array(array("rating : the rating (-1 : Deny, 0 : Ignore, 1 : Accept)")))), "getAvailProducts" => _hx_anonymous(array("description" => new _hx_array(array("Get products based on user ratings, null if none")))), "resetUserTags" => _hx_anonymous(array("description" => new _hx_array(array("Reset user ratings")))), "initProducts" => _hx_anonymous(array("description" => new _hx_array(array("Init product database"))))))));
+function Api_0(&$__hx__this, &$result, &$tag) {
+	{
+		$o = haxe_Json::parse(((php_Session::exists("ratings")) ? php_Session::get("ratings") : "{}"));
+		return _hx_has_field($o, $tag->name);
+	}
+}

@@ -11,24 +11,55 @@
 		<script src='lib/quintus_2d.js'></script>
 		<script src='lib/quintus_touch.js'></script>
 		<script src='lib/quintus_ui.js'></script>
+		<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 		<style type="text/css">
 			body
 			{
 				background-color: black;
+				font-family: 'Raleway', sans-serif;
 			}
+			
 			#quintus_container
 			{
 				width: 960px;
 				margin: 0px auto;
 				position: relative;
-				background-color: rgb(134, 77, 77);
+				background-color: black;
 				border: 1px solid black;
 			}
+			
+			#title
+			{
+				color:white;
+				text-align: center;
+			}
+			
+			#products
+			{
+				text-align: center;
+				width: 960px;
+				margin: 20px auto;
+			}
+			
+			a
+			{
+				margin: 10px;
+			}
+			
+			img
+			{
+				max-width: 100px;
+				max-height: 100px;
+			}
 		</style>
+		
 	</head>
 	<body>
+		<h1 id="title"></h1>
 		<script src="games/main.js" type="text/javascript"></script>
 		<script src="games/levels.js" type="text/javascript"></script>
 		<script src="games/loader.js" type="text/javascript"></script>
+		<div id="products">
+		</div>
 	</body>
 </html>

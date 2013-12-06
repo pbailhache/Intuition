@@ -1,9 +1,12 @@
 window.levelGame = 1;
+window.maxLevel = 10;
+window.levelTag = "";
+window.rating = 0;
 
-var Q = Quintus().include("Sprites, Scenes, Input, 2D, Touch, UI").setup({
+var Q = Quintus().include("Sprites, Scenes, Input, 2D, Audio, Touch, UI, Audio").setup({
 	width: 960,
 	height: 640
-}).controls().touch();
+}).controls().touch().enableSound();
 
 Q.Sprite.extend("Player", {
 	init: function(p) {
@@ -11,7 +14,7 @@ Q.Sprite.extend("Player", {
 			asset: "player.png",
 			x: 96,
 			y: 50,
-			jumpSpeed: -380
+			jumpSpeed: -800
 		});
 		this.add('2d, platformerControls');
 
@@ -19,17 +22,20 @@ Q.Sprite.extend("Player", {
 		{
 			if (collision.obj.isA("EndYes"))
 			{
-				Q.stageScene("endGame", window.levelGame, {label: "Vous avez dit oui ! :)"});
+				window.rating = 1;
+				Q.stageScene("endGame", 1, {label: "Vous avez dit oui ! :)"});
 				this.destroy();
 			}
 			else if(collision.obj.isA("EndNo"))
 			{
-				Q.stageScene("endGame", window.levelGame, {label: "Vous avez dit non ! :'("});
+				window.rating = -1;
+				Q.stageScene("endGame", -1, {label: "Vous avez dit non ! :'("});
 				this.destroy();
 			}
 			else if(collision.obj.isA("End"))
 			{
-				Q.stageScene("endGame", window.levelGame, {label: "Vous passez… -_-"});
+				window.rating = 0;
+				Q.stageScene("endGame", 0, {label: "Vous passez… -_-"});
 				this.destroy();
 			}
 		});
