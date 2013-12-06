@@ -18,7 +18,8 @@ Q.scene('endGame', function(rating) {
 							var productsDiv = document.getElementById("products");
 							link.className = "product";
 							link.href = products[i].url;
-							link.innerHTML = "fsdfvsdvcsd" + '<img src="' + products[i].imageURL + '" alt="' + products[i].name + '" title="' + products[i].name + '"/>';
+							link.setAttribute("target","_blank");
+							link.innerHTML = '<img src="' + products[i].imageURL + '" alt="' + products[i].name + '" title="' + products[i].name + '"/>';
 
 							productsDiv.appendChild(link);
 						}
