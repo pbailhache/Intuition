@@ -1,5 +1,5 @@
 window.levelGame = 1;
-window.maxLevel = 9;
+window.maxLevel = 10;
 window.levelTag = "";
 window.rating = 0;
 

@@ -21,12 +21,13 @@ Q.scene('endGame', function(rating) {
 							link.innerHTML = "fsdfvsdvcsd" + '<img src="' + products[i].imageURL + '" alt="' + products[i].name + '" title="' + products[i].name + '"/>';
 
 							productsDiv.appendChild(link);
-
-							var resetTags = new XMLHttpRequest();
-							resetTags.onreadystatechange = function() {};
-							resetTag.open("GET", "http://developersrift.projets-bx1.fr/api/resetUserTags", true);
-							resetTag.send(null);
 						}
+
+
+						var resetTags = new XMLHttpRequest();
+						resetTags.onreadystatechange = function() {};
+						resetTags.open("GET", "http://developersrift.projets-bx1.fr/api/resetUserTags", true);
+						resetTags.send(null);
 					}
 					var getNewTag = new XMLHttpRequest();
 
@@ -59,7 +60,7 @@ Q.scene('endGame', function(rating) {
 });
 
 //load assets
-Q.load("tiles.png, player.png, level1.tmx, level2.tmx, level3.tmx, level4.tmx, level5.tmx, level6.tmx, level7.tmx, level8.tmx, level9.tmx, blackflaggreen.png, blackflagred.png, blackflaggrey.png", function() {
+Q.load("tiles.png, player.png, level1.tmx, level2.tmx, level3.tmx, level4.tmx, level5.tmx, level6.tmx, level7.tmx, level8.tmx, level9.tmx, level10.tmx, blackflaggreen.png, blackflagred.png, blackflaggrey.png", function() {
 	Q.sheet("tiles", "tiles.png", {
 		tilew: 64,
 		tileh: 64
@@ -73,7 +74,7 @@ Q.load("tiles.png, player.png, level1.tmx, level2.tmx, level3.tmx, level4.tmx, l
 			document.getElementById("title").innerHTML = response.name;
 			document.getElementById("quintus_container").style.background = "#" + response.color;
 			window.levelTag = response.name;
-			Q.stageScene("level1");
+			Q.stageScene("level10");
 		}
 	};
 	XHR.open("GET", "http://developersrift.projets-bx1.fr/api/getNewTag", true);
