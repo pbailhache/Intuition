@@ -39,12 +39,10 @@ $(document).ready(function(){
 		});
 
 		if(products != null && products.length >= 3){
-			$("#notion").text("peut-être ?");
-			$("#notion").append("<div class=\"productFrame\">");
-			$("#notion").append("<img class=\"productImage\" src=\""+products[0]["imageURL"]+"\"/>");
-			$("#notion").append("<span class=\"productPrice\">"+products[0]["price"]+" €</span>");
-			$("#notion").append("</div>");
-
+			$("#notion").html("<div style=\"background-color: #fff; padding: 10px; margin: 5px auto; width: 40%\"><img style=\"height: 100px; vertical-align: middle\" src=\""+products[0]["imageURL"]+"\"/><span style=\"font-size: 30px;color:#222;vertical-align: middle;\">"+products[0]["price"]+" €</span><br/><a style=\"font-size: 20px; color: #222; text-decoration: none; vertical-align: middle\" href=\""+products[0]["url"]+"\">Voir chez le marchand...</a></div><div style=\"background-color: #fff; padding: 10px; margin: 5px auto; width: 40%\"><img style=\"height: 100px; vertical-align: middle\" src=\""+products[1]["imageURL"]+"\"/><span style=\"font-size: 30px;color:#222;vertical-align: middle;\">"+products[1]["price"]+" €</span><br/><a style=\"font-size: 20px; color: #222; text-decoration: none; vertical-align: middle\" href=\""+products[1]["url"]+"\">Voir chez le marchand...</a></div><div style=\"background-color: #fff; padding: 10px; margin: 5px auto; width: 40%\"><img style=\"height: 100px; vertical-align: middle\" src=\""+products[2]["imageURL"]+"\"/><span style=\"font-size: 30px;color:#222;vertical-align: middle;\">"+products[2]["price"]+" €</span><br/><a style=\"font-size: 20px; color: #222; text-decoration: none; vertical-align: middle\" href=\""+products[2]["url"]+"\">Voir chez le marchand...</a></div>");
+			jQuery.getJSON("http://developersrift.projets-bx1.fr/api/resetUserTags", function(){
+			
+		});
 		} else {
 			jQuery.ajax({
 			type: "get",
@@ -66,9 +64,9 @@ $(document).ready(function(){
 
 	  
 			if ((0.2125 * red + 0.7154 * green + 0.0721 * blue)<= 128){
-		   		$("body").css("color","#f5f5f5");	
+	   			$("body").css("color","#222");
 		   	} else {
-		   		$("body").css("color","#222");
+		   		$("body").css("color","#f5f5f5");
 		   	}
 	}
 }

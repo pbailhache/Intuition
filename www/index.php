@@ -14,7 +14,7 @@
 	<div id="content">
 		<div id="logo">
 		<div id="colorblind" style="font-weight: 300"><i class="fa fa-eye"></i></div>
-			<a href="apropos.php" id = "lg">
+			<a id="aPropos" href="apropos.php" id = "lg">
 			</a>
 		</div>
 		<div id="choiceFrame">
