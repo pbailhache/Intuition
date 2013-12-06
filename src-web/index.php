@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="content">
-		<div id="colorblind">Colorblind mode</div>
+		<div id="colorblind" style="font-weight: 300">colorblind mode</div>
 			<a href="apropos.php" id="logo">
 				<img src="../src-icons/logo60x60.png"alt="logo">
 			</a>
