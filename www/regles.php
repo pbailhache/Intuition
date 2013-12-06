@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>règles du jeu.</title>
+	<title>règles du jeu</title>
 	<link rel="stylesheet" href="style/secondary.css">
 	<link rel="stylesheet" href="fonts\font-awesome-4.0.3\css\font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:300,800' rel='stylesheet' type='text/css'>

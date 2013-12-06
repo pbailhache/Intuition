@@ -38,13 +38,18 @@ h3
 
 p
 {
-	line-height: 26px;
-	letter-spacing: 1.1px;
+	line-height: 32px;
+	letter-spacing: 2.1px;
 	font-weight: 300;
 	font-size: 1em;
 	margin: 7% 16%;
 }
 
+b
+{
+	font-weight: 800;
+	font-size: 130%;
+}
 #logo
 {
 	float: right;
