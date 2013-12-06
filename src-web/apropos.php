@@ -10,8 +10,7 @@
 
 <body>
 	<div id="logo">
-		<div id="colorblind" style="font-weight: 300"><i class="fa fa-eye"></i></div>
-			<a href="apropos.php">
+			<a href="index.php">
 				<img src="../src-icons/logo60x60.png"alt="logo">
 			</a>
 		</div>
