@@ -1,0 +1,9 @@
+.Règles du jeu.
+
+Intuition - Jeu :
+
+Ce jeu est très simple. Vous contrôlez (via les flèches directionnelles) un petit carré, qui est là pour vous aider à prendre vos décisions. Vous pouvez donc le faire avancer du coté de votre choix en pressant la flèche correspondante, vous pouvez de même le faire sauter (afin d'éviter les obstacles ou d'éviter de tomber dans des possibles trous) en pressant la flèche directionnelle haut. 
+À chaque niveau est associé un concept. Pour chaque concept, vous pouvez choisir qu'il vous plaît (suivez la flèche verte) ou qu'il vous déplaît (suivez la flèche rouge), le but est d'arriver au drapeau (vert ou rouge en fonction de votre choix) qui validera ce dernier et vous fera passer au niveau suivant. Si vous n'avez pas d'avis sur ce concept ou que vous n'arrivez pas à vous décider, vous pouvez toujours le passer en suivant la flèche grise, généralement très facile d'accès et proche du point de départ.
+
+Bon jeu ! 
+
