@@ -9,7 +9,7 @@ Q.Sprite.extend("Player", {
 	init: function(p) {
 		this._super(p, {
 			asset: "player.png",
-			x: 110,
+			x: 96,
 			y: 50,
 			jumpSpeed: -380
 		});
