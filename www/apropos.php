@@ -1,7 +1,8 @@
+<script type="text/javascript" src="scripts/colorblind.js"></script> 
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>à propos.</title>
+	<title>à propos</title>
 	<link rel="stylesheet" href="style/secondary.css">
 	<link rel="stylesheet" href="fonts\font-awesome-4.0.3\css\font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:300,800' rel='stylesheet' type='text/css'>
@@ -18,9 +19,17 @@
 		<h3>
 			à propos
 		</h3>
-		<p>
-			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+		<p>		
+De nos jours, l'information est partout. Et dans ce monde de données, il est vite fait de se noyer et de se perdre dans l'information. Face à ce constat, Intuition se propose de changer de paradigme. Refuser ce monde de surinformation pour revenir à une simplicité à la fois plus élégante, plus reposante et plus efficace.
+Pour ce faire, vous êtes présentés à une liste de concepts, de mots-clés, et face à chacun d'entre eux vous est demandé un choix unique : Est-ce que choix vous attire ? Oui ou non ? Puis, en se basant sur vos choix, Intuition vous propose une liste de produits, toujours de façon claire et concise, et si ceux-ci vous intéressent, vous permet d'aller chercher plus d'informations sur ces derniers.
+
+Pour reprendre son propre concept, Intuition en un mot-clé ce serait : 
+
+<b>Sérendipité.</b>
+
+
 		</p>
 	</div>
+<div id="footer">crée lors du nuit de l'info 2013 par l'équipe developer's rift.</div>
 </body>
 		

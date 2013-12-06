@@ -22,8 +22,8 @@ class ProductTag extends sys.db.Object
 	{
 		return
 		{
-			product : this.product,
-			tag : this.tag,
+			product : this.product.id,
+			tag : this.tag.id,
 			score : this.score,
 		};
 	}

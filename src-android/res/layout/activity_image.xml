@@ -2,19 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:id="@+id/layoutImage"
     tools:context=".ImageActivity" >
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textViewTag"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:contentDescription="@string/image_intuition_content_description"
-        android:scaleType="centerCrop"
-        android:src="@drawable/image1" />
+        android:layout_marginBottom="64dp"
+        android:gravity="center"
+        android:textSize="48sp"
+        android:textColor="#FFFFFF"
+        android:text="BLAH" />
 
     <RelativeLayout
+        android:id="@+id/layoutButtonImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -24,29 +29,29 @@
         android:paddingTop="1dp" >
 
         <Button
-            android:id="@+id/buttonYes"
-            android:layout_width="140dp"
+            android:id="@+id/buttonNo"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/buttonNo"
-            android:layout_alignBottom="@+id/buttonNo"
+            android:layout_alignBaseline="@+id/buttonYes"
+            android:layout_alignBottom="@+id/buttonYes"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="1dp"
-            android:background="@drawable/buttons_flat_green"
+            android:background="@drawable/buttons_flat_red"
             android:fontFamily="sans-serif-thin"
             android:paddingRight="3dp"
-            android:text="@string/button_yes"
+            android:text="@string/button_no"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/buttonNo"
-            android:layout_width="140dp"
+            android:id="@+id/buttonYes"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_marginRight="1dp"
-            android:background="@drawable/buttons_flat_red"
+            android:background="@drawable/buttons_flat_green"
             android:fontFamily="sans-serif-thin"
-            android:text="@string/button_no"
+            android:text="@string/button_yes"
             android:textColor="#FFFFFF"
             android:textStyle="bold" />
 
@@ -56,8 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/buttonYes"
             android:layout_alignBottom="@+id/buttonYes"
-            android:layout_toLeftOf="@+id/buttonYes"
-            android:layout_toRightOf="@+id/buttonNo"
+            android:layout_toLeftOf="@+id/buttonNo"
+            android:layout_toRightOf="@+id/buttonYes"
             android:background="@drawable/buttons_flat_grey"
             android:fontFamily="sans-serif-thin"
             android:text="@string/button_skip"

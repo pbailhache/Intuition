@@ -79,3 +79,26 @@ body
 	font-size: 2.5em;
 	padding-bottom: 10px;
 }
+
+#footer
+{
+	font-size: 200%;
+	cursor: default;
+	font-weight: 200;
+	text-align: center;
+	bottom: 0;
+	opacity: 0.4;
+	transition: opacity .5s ease-in-out;
+   -moz-transition: opacity .5s ease-in-out;
+   -webkit-transition: opacity .5s ease-in-out;
+}
+
+#footer:hover
+{
+	opacity: 1;
+}
+
+#lg
+{
+	content: url('../../src-icons/logo60x60.png');
+}

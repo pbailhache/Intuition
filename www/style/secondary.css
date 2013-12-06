@@ -36,14 +36,22 @@ h3
 	margin-top: 2%;
 }
 
+
 p
 {
-	line-height: 26px;
-	letter-spacing: 1.1px;
+	line-height: 32px;
+	letter-spacing: 2.1px;
 	font-weight: 300;
 	font-size: 1em;
 	margin: 7% 16%;
 }
+
+b
+{
+	font-weight: 800;
+	font-size: 130%;
+}
+
 
 #logo
 {
@@ -52,3 +60,22 @@ p
 	right: 8px;
 	top: 13px;
 }
+
+#footer
+{
+	cursor: default;
+	font-weight: 200;
+	position: absolute;
+	right: 2px;
+	bottom: 0;
+	opacity: 0.4;
+	transition: opacity .5s ease-in-out;
+   -moz-transition: opacity .5s ease-in-out;
+   -webkit-transition: opacity .5s ease-in-out;
+}
+
+#footer:hover
+{
+	opacity: 1;
+}
+
