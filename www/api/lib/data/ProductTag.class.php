@@ -11,7 +11,7 @@ class data_ProductTag extends sys_db_Object {
 	public $id;
 	public $score;
 	public function getObject() {
-		return _hx_anonymous(array("product" => $this->get_product(), "tag" => $this->get_tag(), "score" => $this->score));
+		return _hx_anonymous(array("product" => $this->get_product()->id, "tag" => $this->get_tag()->id, "score" => $this->score));
 	}
 	public function get_product() {
 		return data_Product::$manager->h__get($this, "product", "productId", false);

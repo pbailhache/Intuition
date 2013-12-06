@@ -25,6 +25,9 @@ class php_Session {
 		php_Session::$started = true;
 		session_start();
 	}
+	static function clear() {
+		session_unset();
+	}
 	function __toString() { return 'php.Session'; }
 }
 php_Session::$started = isset($_SESSION);
