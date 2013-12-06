@@ -40,7 +40,7 @@ class Main
 
 		// Create missing tables
 		if(!sys.db.TableCreate.exists(Product.manager))         { sys.db.TableCreate.create(Product.manager); }
-		if(!sys.db.TableCreate.exists(Tag.manager))         	{ sys.db.TableCreate.create(Tag.manager); }
+		if(!sys.db.TableCreate.exists(Tag.manager))         	{ sys.db.TableCreate.create(Tag.manager); 	  }
 
 		api = new Api();
 

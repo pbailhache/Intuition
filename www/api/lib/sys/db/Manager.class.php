@@ -353,6 +353,24 @@ class sys_db_Manager {
 	public function getLockMode() {
 		return sys_db_Manager::$lockMode;
 	}
+	public function h__get($x, $prop, $key, $lock) {
+		$v = Reflect::field($x, $prop);
+		if($v !== null) {
+			return $v->value;
+		}
+		$y = $this->unsafeGet(Reflect::field($x, $key), $lock);
+		$x->{$prop} = _hx_anonymous(array("value" => $y));
+		return $y;
+	}
+	public function h__set($x, $prop, $key, $v) {
+		$x->{$prop} = _hx_anonymous(array("value" => $v));
+		if($v === null) {
+			$x->{$key} = null;
+		} else {
+			$value = Reflect::field($v, $this->table_keys[0]);
+			$x->{$key} = $value;
+		}
+	}
 	public function makeCacheKey($x) {
 		if($this->table_keys->length === 1) {
 			$k = Reflect::field($x, $this->table_keys[0]);
