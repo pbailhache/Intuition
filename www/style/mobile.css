@@ -18,6 +18,7 @@ html
 {
 	overflow-y: hidden;
 }
+
 body
 {
 	background-color: #a1bee6;
@@ -31,6 +32,7 @@ body
 
 #notion
 {
+	cursor: default;
 	font-size: 10em;
 	margin: 0 auto;
 	top: 20%;
