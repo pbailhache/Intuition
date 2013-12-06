@@ -17,7 +17,7 @@ $(document).ready(function(){
 	});
 
 	$("#choices .unsure").click(function(){
-		var name = $("#notion").val();
+		var name = $("#notion").text();
 		jQuery.ajax({
 			type: "get",
 			dataType: "json",
@@ -32,7 +32,7 @@ $(document).ready(function(){
 	});
 
 	$("#choices .no").click(function(){
-		var name = $("#notion").val();
+		var name = $("#notion").text();
 		jQuery.ajax({
 			type: "get",
 			dataType: "json",
