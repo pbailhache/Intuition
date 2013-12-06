@@ -35,9 +35,9 @@ public final class R {
         public static final int image2=0x7f020005;
         public static final int image3=0x7f020006;
         public static final int image4=0x7f020007;
+        public static final int logo=0x7f020008;
     }
     public static final class id {
-        public static final int action_settings=0x7f090008;
         public static final int buttonNo=0x7f090003;
         public static final int buttonSkip=0x7f090005;
         public static final int buttonYes=0x7f090004;
@@ -62,22 +62,16 @@ public final class R {
         public static final int product_informations=0x7f080005;
     }
     public static final class string {
-        public static final int Oui=0x7f060003;
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int button_no=0x7f060005;
-        public static final int button_skip=0x7f060006;
-        public static final int button_yes=0x7f060004;
+        public static final int button_no=0x7f060004;
+        public static final int button_skip=0x7f060005;
+        public static final int button_yes=0x7f060003;
         public static final int hello_world=0x7f060002;
-        public static final int image_intuition_content_description=0x7f060007;
-        public static final int title_activity_image_gestures=0x7f06000b;
-        public static final int title_activity_image_pager=0x7f06000c;
-        public static final int title_activity_main=0x7f06000a;
-        public static final int title_activity_product=0x7f060008;
-        public static final int title_activity_product_informations=0x7f060009;
-        public static final int title_section1=0x7f06000d;
-        public static final int title_section2=0x7f06000e;
-        public static final int title_section3=0x7f06000f;
+        public static final int image_intuition_content_description=0x7f060006;
+        public static final int title_activity_main=0x7f060009;
+        public static final int title_activity_product=0x7f060007;
+        public static final int title_activity_product_informations=0x7f060008;
     }
     public static final class style {
         /** 

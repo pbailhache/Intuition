@@ -25,13 +25,14 @@
 
         <TextView
             android:id="@+id/textViewPrice"
+            android:background="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/imageViewProduct"
             android:layout_alignTop="@+id/imageViewProduct"
             android:fontFamily="sans-serif-light"
-            android:padding="10dp"
-            android:text="199.99 €"
+            android:padding="9dp"
+            android:layout_margin="1dp"
             android:textSize="24sp"
             android:textStyle="bold" />
 
