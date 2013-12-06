@@ -30,6 +30,21 @@ body
 
 }
 
+h3
+{
+	font-size: 5em;
+	margin-top: 2%;
+}
+
+p
+{
+	line-height: 26px;
+	letter-spacing: 1.1px;
+	font-weight: 300;
+	font-size: 1em;
+	margin: 7% 16%;
+}
+
 #logo
 {
 	float: right;
@@ -38,32 +53,3 @@ body
 	top: 15px;
 }
 
-#notion
-{
-	cursor: default;
-	font-size: 10em;
-	margin: 5% auto auto auto;
-	top: 20%;
-}
-
-#choices
-{
-	text-align: center;
-	font-size: 5em;
-    width: 509px;
-    height: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.button
-{
-	top: 40%;
-	float: left;
-	position: relative;
-}
-
-.unsure
-{
-	padding: 0 100px;
-}
