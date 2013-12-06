@@ -89,8 +89,15 @@ class Api
 	@param2("color : hexadecimal representation of a corresponding color : 614287")
 	public function addTag(name : String, color : String)
 	{
-		new Tag(name, color).insert();
-		Sys.print(haxe.Json.stringify({success : true}));
+		if(name == "" || color == "" || Tag.manager.count($name == name) > 0)
+		{
+			Sys.print(haxe.Json.stringify({success : false}));
+		}
+		else
+		{
+			new Tag(name, color).insert();
+			Sys.print(haxe.Json.stringify({success : true}));
+		}
 	}
 
 	/*

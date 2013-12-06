@@ -56,8 +56,12 @@ class Api {
 		Sys::hprint(haxe_Json::stringify(_hx_anonymous(array("name" => "Test", "color" => "#123456")), null));
 	}
 	public function addTag($name, $color) {
-		_hx_deref(new data_Tag($name, $color))->insert();
-		Sys::hprint(haxe_Json::stringify(_hx_anonymous(array("success" => true)), null));
+		if($name === "" || $color === "" || data_Tag::$manager->unsafeCount("SELECT COUNT(*) FROM intuition_tags WHERE name = " . _hx_string_or_null(sys_db_Manager::quoteAny($name))) > 0) {
+			Sys::hprint(haxe_Json::stringify(_hx_anonymous(array("success" => false)), null));
+		} else {
+			_hx_deref(new data_Tag($name, $color))->insert();
+			Sys::hprint(haxe_Json::stringify(_hx_anonymous(array("success" => true)), null));
+		}
 	}
 	public function getProducts() {
 		$result = new _hx_array(array());

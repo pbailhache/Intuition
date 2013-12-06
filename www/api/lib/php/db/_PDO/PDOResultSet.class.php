@@ -6,6 +6,12 @@ class php_db__PDO_PDOResultSet extends php_db__PDO_BaseResultSet {
 		parent::__construct($pdo,$typeStrategy);
 	}}
 	public $cache;
+	public function getResult($index) {
+		if(!$this->hasNext()) {
+			return null;
+		}
+		return $this->cache[$index];
+	}
 	public function hasNext() {
 		if((null === $this->cache)) {
 			$this->cacheRow();

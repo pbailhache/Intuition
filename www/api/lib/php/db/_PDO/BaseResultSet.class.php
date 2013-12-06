@@ -26,6 +26,12 @@ class php_db__PDO_BaseResultSet implements sys_db_ResultSet{
 			unset($i,$data);
 		}
 	}
+	public function getIntResult($index) {
+		return intval($this->getResult($index));
+	}
+	public function getResult($index) {
+		throw new HException("must override");
+	}
 	public function hasNext() {
 		throw new HException("must override");
 	}

@@ -321,6 +321,9 @@ class sys_db_Manager {
 		}
 		return $l2;
 	}
+	public function unsafeCount($sql) {
+		return $this->unsafeExecute($sql)->getIntResult(0);
+	}
 	public function unsafeGet($id, $lock = null) {
 		if($lock === null) {
 			$lock = true;
@@ -460,6 +463,11 @@ class sys_db_Manager {
 			sys_db_Manager::$lockMode = "";
 		}
 		return $c;
+	}
+	static function quoteAny($v) {
+		$s = new StringBuf();
+		sys_db_Manager::$cnx->addValue($s, $v);
+		return $s->b;
 	}
 	static $__properties__ = array("set_cnx" => "set_cnx");
 	function __toString() { return 'sys.db.Manager'; }
