@@ -98,3 +98,8 @@ body
 {
 	opacity: 1;
 }
+
+a
+{
+	content: url('../../src-icons/logo60x60.png');
+}
