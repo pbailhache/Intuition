@@ -27,7 +27,6 @@ body
 	font-family: 'Raleway', sans-serif;
 	font-weight: 800;
 	text-align: center;
-
 }
 
 
@@ -45,6 +44,7 @@ body
 	font-size: 10em;
 	margin: 0 auto;
 	top: 20%;
+	text-transform:lowercase;
 }
 
 #choices
