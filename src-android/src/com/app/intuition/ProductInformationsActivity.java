@@ -16,6 +16,7 @@ import net.intuition.APIConnection;
 
 import com.users.ProductList;
 
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
@@ -31,6 +32,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProductInformationsActivity extends Activity {
 
@@ -48,7 +50,6 @@ public class ProductInformationsActivity extends Activity {
 		
 		img = (ImageView) findViewById(R.id.imageViewProduct);
 		textViewPrice = (TextView) findViewById(R.id.textViewPrice);
-		textViewPrice.setText(ProductList.getProduct(0).getPrice());
 		
 		Log.i("blah", ProductList.getProduct(0).getImageURL());
 		new GetProduct(ProductList.getProduct(0).getImageURL()).execute();
@@ -64,7 +65,9 @@ public class ProductInformationsActivity extends Activity {
 	private OnClickListener yesAction = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			
+			 Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse(ProductList.getProduct(0).getUrl()) );
+			 startActivity(intent);
+			 finish();
 		}
 	};
 
@@ -151,9 +154,10 @@ public class ProductInformationsActivity extends Activity {
 		protected void onPostExecute(String file_url) {
 			if (bitmap!=null){
 				img.setImageBitmap(bitmap);
-				Log.i("BIT", "COUCOU");
-				
+				textViewPrice.setText(ProductList.getProduct(0).getPrice());
 			}
+			else 
+				Toast.makeText(ProductInformationsActivity.this, "Un problème est survenu.", Toast.LENGTH_SHORT).show();
 			pDialog.dismiss();
 		}
 
