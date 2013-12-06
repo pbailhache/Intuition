@@ -21,5 +21,5 @@ Q.load("tiles.png, player.png, level1.tmx, level2.tmx, level3.tmx, level4.tmx, l
 		tilew: 64,
 		tileh: 64
 	});
-	Q.stageScene("level6");
+	Q.stageScene("level2");
 });
