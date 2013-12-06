@@ -16,7 +16,7 @@ Q.scene('endGame', function(stage) {
 });
 
 //load assets
-Q.load("tiles.png, player.png, level1.tmx", function() {
+Q.load("tiles.png, player.png, level1.tmx, level2.tmx, blackflaggreen.png, blackflagred.png, blackflaggrey.png", function() {
 	Q.sheet("tiles", "tiles.png", {
 		tilew: 64,
 		tileh: 64

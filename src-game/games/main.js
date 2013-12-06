@@ -38,18 +38,18 @@ Q.Sprite.extend("Player", {
 
 Q.Sprite.extend("EndYes", {
 	init: function(p) {
-		this._super(p, {asset: "player.png"});
+		this._super(p, {asset: "blackflaggreen.png"});
 	}
 });
 
 Q.Sprite.extend("EndNo", {
 	init: function(p) {
-		this._super(p, {asset: "player.png"});
+		this._super(p, {asset: "blackflagred.png"});
 	}
 });
 
 Q.Sprite.extend("End", {
 	init: function(p) {
-		this._super(p, {asset: "player.png"});
+		this._super(p, {asset: "blackflaggrey.png"});
 	}
 });
