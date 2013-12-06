@@ -5,7 +5,7 @@ $(document).ready(function(){
 		jQuery.ajax({
 			type: "get",
 			dataType: "json",
-			url:"http://developersrift.projets-bx1.fr/api/addTag",
+			url:"http://developersrift.projets-bx1.fr/api/rateTag",
 			data:"?name="+name+"&rating=1",
 			
 		});
@@ -21,7 +21,7 @@ $(document).ready(function(){
 		jQuery.ajax({
 			type: "get",
 			dataType: "json",
-			url:"http://developersrift.projets-bx1.fr/api/addTag",
+			url:"http://developersrift.projets-bx1.fr/api/rateTag",
 			data:"?name="+name+"&rating=0",
 			
 		});
@@ -36,7 +36,7 @@ $(document).ready(function(){
 		jQuery.ajax({
 			type: "get",
 			dataType: "json",
-			url:"http://developersrift.projets-bx1.fr/api/addTag",
+			url:"http://developersrift.projets-bx1.fr/api/rateTag",
 			data:"?name="+name+"&rating=-1",
 			
 		});
