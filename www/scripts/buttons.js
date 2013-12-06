@@ -1,12 +1,12 @@
 $(document).ready(function(){
 
 	$("#choices .yes").click(function(){
-		var name = $("#name").val();
+		var name = $("#notion").text();
 		jQuery.ajax({
 			type: "get",
 			dataType: "json",
 			url:"http://developersrift.projets-bx1.fr/api/rateTag",
-			data:"?tag="+name+"&rating=1",
+			data:"tag="+name+"&rating=1",
 			
 		});
 		jQuery.getJSON("http://developersrift.projets-bx1.fr/api/getNewTag", function(data){
@@ -17,12 +17,12 @@ $(document).ready(function(){
 	});
 
 	$("#choices .unsure").click(function(){
-		var name = $("#name").val();
+		var name = $("#notion").text();
 		jQuery.ajax({
 			type: "get",
 			dataType: "json",
 			url:"http://developersrift.projets-bx1.fr/api/rateTag",
-			data:"?tag="+name+"&rating=0",
+			data:"tag="+name+"&rating=0",
 			
 		});
 		jQuery.getJSON("http://developersrift.projets-bx1.fr/api/getNewTag", function(data){
@@ -32,12 +32,12 @@ $(document).ready(function(){
 	});
 
 	$("#choices .no").click(function(){
-		var name = $("#name").val();
+		var name = $("#notion").text();
 		jQuery.ajax({
 			type: "get",
 			dataType: "json",
 			url:"http://developersrift.projets-bx1.fr/api/rateTag",
-			data:"?tag="+name+"&rating=-1",
+			data:"tag="+name+"&rating=-1",
 			
 		});
 		jQuery.getJSON("http://developersrift.projets-bx1.fr/api/getNewTag", function(data){
