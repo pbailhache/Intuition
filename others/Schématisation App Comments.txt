@@ -1,0 +1,17 @@
+1 : 
+
+Au lancement de l'application, la MainActivity initialise les données de l'utilisateur et lance la première activité d'affichage de l'image (ImageActivity).
+
+2 :
+
+L'ImageActivity commence par récupérer un nouveau tag.
+L'utilisateur arrive alors devant ce tag, et doit répondre si ce tag correspond à l'objet qu'il recherche ou non.
+Après la validation de l'utilisateur, l'activité envoie le résultat, puis vérifie si des objets correspondent aux critères de l'utilisateur.
+Si ce n'est pas le cas, l'activité est rechargée avec un nouveau tag, et le processus continue jusqu'à que des objets soient trouvés.
+
+3 : 
+
+La ProductInformationsActivity permet d'afficher un produit et son prix.
+Si le produit ne correspond pas à ce que l'utilisateur recherche, l'applation propose un autre objet.
+Si aucun objet n'intéresse l'utilisateur, l'ImageActivity est rechargée afin de préciser les idées de l'utilisateur.
+A l'inverse, si le bon objet est trouvée, l'utilisateur est redirigé sur un site marchand.
