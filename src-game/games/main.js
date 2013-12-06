@@ -1,9 +1,9 @@
 window.levelGame = 1;
 
-var Q = Quintus().include("Sprites, Scenes, Input, 2D, Touch, UI").setup({
+var Q = Quintus().include("Sprites, Scenes, Input, 2D, Audio, Touch, UI").setup({
 	width: 960,
 	height: 640
-}).controls().touch();
+}).controls().touch().enableSound();
 
 Q.Sprite.extend("Player", {
 	init: function(p) {
