@@ -29,5 +29,6 @@
 			</div>
 		</div>
 	</div>
+<div id="footer">crée lors du nuit de l'info 2013 par l'équipe developer's rift.</div>
 </body>
 		
