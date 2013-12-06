@@ -14,8 +14,7 @@
 	<div id="content">
 		<div id="logo">
 		<div id="colorblind" style="font-weight: 300"><i class="fa fa-eye"></i></div>
-			<a href="apropos.php">
-				<img src="../src-icons/logo60x60.png"alt="logo">
+			<a href="apropos.php" id = "lg">
 			</a>
 		</div>
 		<div id="choiceFrame">
@@ -29,5 +28,6 @@
 			</div>
 		</div>
 	</div>
+<div id="footer">crée lors du nuit de l'info 2013 par l'équipe developer's rift.</div>
 </body>
 		

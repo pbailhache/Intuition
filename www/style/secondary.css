@@ -1,0 +1,81 @@
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+html
+{
+	overflow-y: hidden;
+}
+
+body
+{
+	background-color: #a1bee6;
+	color:#f5f5f5;
+	font-size: 100%;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 800;
+	text-align: center;
+
+}
+
+h3
+{
+	font-size: 5em;
+	margin-top: 2%;
+}
+
+
+p
+{
+	line-height: 32px;
+	letter-spacing: 2.1px;
+	font-weight: 300;
+	font-size: 1em;
+	margin: 7% 16%;
+}
+
+b
+{
+	font-weight: 800;
+	font-size: 130%;
+}
+
+
+#logo
+{
+	float: right;
+	position: absolute;
+	right: 8px;
+	top: 13px;
+}
+
+#footer
+{
+	cursor: default;
+	font-weight: 200;
+	position: absolute;
+	right: 2px;
+	bottom: 0;
+	opacity: 0.4;
+	transition: opacity .5s ease-in-out;
+   -moz-transition: opacity .5s ease-in-out;
+   -webkit-transition: opacity .5s ease-in-out;
+}
+
+#footer:hover
+{
+	opacity: 1;
+}
+

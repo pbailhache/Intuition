@@ -9,5 +9,13 @@
     <string name="button_no">Non</string>
     <string name="button_skip">\?</string>
     <string name="image_intuition_content_description">imgIntuition</string>
+    <string name="title_activity_product">ProductActivity</string>
+    <string name="title_activity_product_informations">ProductInformationsActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_image_gestures">ImageGesturesActivity</string>
+    <string name="title_activity_image_pager">ImagePagerActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
 
 </resources>

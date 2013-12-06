@@ -19,9 +19,11 @@ $(document).ready(function(){
 	$("#colorblind").click(function(){
 		if($("body").css("color") == "rgb(245, 245, 245)" || $("body").css("color") == "#f5f5f5"){
 			$("body").css("color","#222");
+			$("#lg").css("content", "url(../src-icons/logo60x60b.png)");
 		}
 		else{
 			$("body").css("color","#f5f5f5");
+			$("#lg").css("content", "url(../src-icons/logo60x60.png)");
 		}
 	});
 	

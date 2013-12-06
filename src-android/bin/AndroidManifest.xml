@@ -4,9 +4,12 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <uses-sdk
-        android:minSdkVersion="1"
-        android:targetSdkVersion="8" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="11" />
 
     <application
         android:allowBackup="true"
@@ -16,11 +19,31 @@
         <activity
             android:name="com.app.intuition.ImageActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.app.intuition.ProductImageActivity"
+            android:label="@string/title_activity_product" >
+        </activity>
+        <activity
+            android:name="com.app.intuition.ProductInformationsActivity"
+            android:label="@string/title_activity_product_informations" >
+        </activity>
+        <activity
+            android:name="com.app.intuition.MainActivity"
+            android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.app.intuition.ImageGesturesActivity"
+            android:label="@string/title_activity_image_gestures" >
+        </activity>
+        <activity
+            android:name="com.app.intuition.ImagePagerActivity"
+            android:label="@string/title_activity_image_pager" >
         </activity>
     </application>
 

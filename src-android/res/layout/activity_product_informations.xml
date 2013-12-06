@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:orientation="vertical"
+    tools:context=".ProductImageActivity" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000000" >
+
+        <ImageView
+            android:id="@+id/imageViewProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="1dp"
+            android:contentDescription="@string/image_intuition_content_description"
+            android:gravity="center"
+            android:padding="1dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/textViewPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/imageViewProduct"
+            android:layout_alignTop="@+id/imageViewProduct"
+            android:fontFamily="sans-serif-light"
+            android:padding="10dp"
+            android:text="199.99 €"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutButtonImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="#000000"
+        android:paddingTop="1dp" >
+
+        <Button
+            android:id="@+id/buttonYes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/buttons_flat_green"
+            android:fontFamily="sans-serif-thin"
+            android:text="@string/button_yes"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonNo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginLeft="1dp"
+            android:background="@drawable/buttons_flat_red"
+            android:fontFamily="sans-serif-thin"
+            android:paddingRight="3dp"
+            android:text="@string/button_no"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+ 
+    </LinearLayout>
+
+</RelativeLayout>
