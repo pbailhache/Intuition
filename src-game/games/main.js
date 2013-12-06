@@ -14,7 +14,7 @@ Q.Sprite.extend("Player", {
 			asset: "player.png",
 			x: 96,
 			y: 50,
-			jumpSpeed: -800
+			jumpSpeed: -380
 		});
 		this.add('2d, platformerControls');
 
